@@ -11,10 +11,15 @@ using System.Windows.Forms;
 //still need a check to ensure id stays unique
 namespace PRG282_02
 {
+
 	public partial class Tasks : Form
 	{
+        List<Student> students = new List<Student>();
 
-		public Tasks()
+        DataTable studentTable = new DataTable();
+        BindingSource src = new BindingSource();
+
+        public Tasks()
 		{
 			InitializeComponent();
 		}
@@ -28,7 +33,45 @@ namespace PRG282_02
 			
 		}
 
-	
-		
-	}
+        private void dgvStudents_SelectionChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+       
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+ 
+        }
+
+     
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+   
+        }
+
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+  
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
 }
