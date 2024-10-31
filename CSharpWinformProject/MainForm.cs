@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Modern_Sliding_Sidebar___C_Sharp_Winform
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         bool sideBar_Expand = true;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -70,7 +70,12 @@ namespace Modern_Sliding_Sidebar___C_Sharp_Winform
         {
             
         }
-        
-       
+
+
+
+        private void tasksUserControl1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Modern_Sliding_Sidebar___C_Sharp_Winform
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Elipse_Form = new Guna.UI.WinForms.GunaElipse(this.components);
             this.SideBar = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel7 = new Guna.UI.WinForms.GunaPanel();
@@ -50,6 +50,7 @@
             this.DragControl_Form = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.Timer_Sidebar_Menu = new System.Windows.Forms.Timer(this.components);
             this.Close_Button = new Guna.UI.WinForms.GunaImageButton();
+            this.tasksUserControl1 = new PRG282_02.TasksUserControl();
             this.SideBar.SuspendLayout();
             this.gunaPanel7.SuspendLayout();
             this.gunaPanel6.SuspendLayout();
@@ -347,7 +348,7 @@
             this.Close_Button.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Close_Button.Image = global::Modern_Sliding_Sidebar___C_Sharp_Winform.Properties.Resources.multiply_48px__;
             this.Close_Button.ImageSize = new System.Drawing.Size(28, 28);
-            this.Close_Button.Location = new System.Drawing.Point(760, 9);
+            this.Close_Button.Location = new System.Drawing.Point(996, 26);
             this.Close_Button.Name = "Close_Button";
             this.Close_Button.OnHoverImage = global::Modern_Sliding_Sidebar___C_Sharp_Winform.Properties.Resources.multiply_48px_____;
             this.Close_Button.OnHoverImageOffset = new System.Drawing.Point(0, 0);
@@ -355,16 +356,27 @@
             this.Close_Button.TabIndex = 1;
             this.Close_Button.Click += new System.EventHandler(this.Close_Button_Click);
             // 
-            // Form1
+            // tasksUserControl1
+            // 
+            this.tasksUserControl1.BackColor = System.Drawing.Color.Transparent;
+            this.tasksUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tasksUserControl1.Location = new System.Drawing.Point(285, 58);
+            this.tasksUserControl1.Name = "tasksUserControl1";
+            this.tasksUserControl1.Size = new System.Drawing.Size(672, 303);
+            this.tasksUserControl1.TabIndex = 2;
+            this.tasksUserControl1.Load += new System.EventHandler(this.tasksUserControl1_Load_1);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(805, 494);
+            this.ClientSize = new System.Drawing.Size(1050, 448);
+            this.Controls.Add(this.tasksUserControl1);
             this.Controls.Add(this.Close_Button);
             this.Controls.Add(this.SideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SideBar.ResumeLayout(false);
@@ -402,6 +414,7 @@
         private Guna.UI.WinForms.GunaButton Menu_Button;
         private Guna.UI.WinForms.GunaDragControl DragControl_Form;
         private System.Windows.Forms.Timer Timer_Sidebar_Menu;
+        private PRG282_02.TasksUserControl tasksUserControl1;
     }
 }
 
