@@ -27,4 +27,12 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.0] - 2024-10-31
 ### Added
-- Integrated table and file handling logic from the [PushToThisOnePls repository](https://github.com/BCStudent28959235/PushToThisOnePls.git). into the `MainForm`
+- Integrated table and file handling logic from the [PushToThisOnePls repository](https://github.com/BCStudent28959235/PushToThisOnePls.git) into the `MainForm`.
+
+## [2.1.1] - 2024-10-31
+### Changed
+- Modified folder structure to implement layered architecture.
+
+## [2.2.0] - 2024-10-31
+### Added
+- Added student task integrated into main repository.
