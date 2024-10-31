@@ -126,18 +126,46 @@ namespace PRG282_02
 
         private void addStudent()
         {
+            try
+            {
+                var student = new Student
+                {
+                    Name = txtName.Text,
+                    Id = int.Parse(txtID.Text),
+                    Age = int.Parse(txtAge.Text),
+                    Course = txtCourse.Text
+                };
 
-  
+                students.Add(student);
+                studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
+
+                save();
+
+                // Clear input fields after adding the student
+                ClearInputFields();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Invalid input: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            save();
+
 
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-     
+
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-      
+
         }
 
 

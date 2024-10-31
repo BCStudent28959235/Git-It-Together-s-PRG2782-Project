@@ -41,5 +41,20 @@ namespace PRG282_02
 			writer.Close();
 			fs.Close();
 		}
+
+		public void GenerateSummary(int students, float age)
+		{
+			string fileName = "Summary.txt";
+
+			FileStream myStream = new FileStream(fileName, FileMode.Create);
+
+			StreamWriter myWriter = new StreamWriter(myStream);
+
+			myWriter.WriteLine($"Number of students: {students}");
+			myWriter.WriteLine($"Average age of students: {age}");
+
+			myWriter.Close();
+			myStream.Close();
+		}
 	}
 }

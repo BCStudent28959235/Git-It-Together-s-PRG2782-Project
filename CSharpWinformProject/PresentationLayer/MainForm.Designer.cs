@@ -51,6 +51,7 @@
             this.Timer_Sidebar_Menu = new System.Windows.Forms.Timer(this.components);
             this.Close_Button = new Guna.UI.WinForms.GunaImageButton();
             this.tasksUserControl1 = new PRG282_02.TasksUserControl();
+            this.tasksUserControl2 = new PRG282_02.TasksUserControl();
             this.SideBar.SuspendLayout();
             this.gunaPanel7.SuspendLayout();
             this.gunaPanel6.SuspendLayout();
@@ -358,13 +359,19 @@
             // 
             // tasksUserControl1
             // 
-            this.tasksUserControl1.BackColor = System.Drawing.Color.Transparent;
-            this.tasksUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tasksUserControl1.Location = new System.Drawing.Point(285, 58);
+            this.tasksUserControl1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tasksUserControl1.Location = new System.Drawing.Point(0, 0);
             this.tasksUserControl1.Name = "tasksUserControl1";
-            this.tasksUserControl1.Size = new System.Drawing.Size(672, 303);
-            this.tasksUserControl1.TabIndex = 2;
-            this.tasksUserControl1.Load += new System.EventHandler(this.tasksUserControl1_Load_1);
+            this.tasksUserControl1.Size = new System.Drawing.Size(692, 285);
+            this.tasksUserControl1.TabIndex = 0;
+            // 
+            // tasksUserControl2
+            // 
+            this.tasksUserControl2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tasksUserControl2.Location = new System.Drawing.Point(262, 93);
+            this.tasksUserControl2.Name = "tasksUserControl2";
+            this.tasksUserControl2.Size = new System.Drawing.Size(692, 285);
+            this.tasksUserControl2.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -372,13 +379,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 448);
-            this.Controls.Add(this.tasksUserControl1);
+            this.Controls.Add(this.tasksUserControl2);
             this.Controls.Add(this.Close_Button);
             this.Controls.Add(this.SideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.SideBar.ResumeLayout(false);
             this.gunaPanel7.ResumeLayout(false);
             this.gunaPanel6.ResumeLayout(false);
@@ -415,6 +422,7 @@
         private Guna.UI.WinForms.GunaDragControl DragControl_Form;
         private System.Windows.Forms.Timer Timer_Sidebar_Menu;
         private PRG282_02.TasksUserControl tasksUserControl1;
+        private PRG282_02.TasksUserControl tasksUserControl2;
     }
 }
 

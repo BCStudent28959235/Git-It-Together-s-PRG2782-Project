@@ -18,7 +18,7 @@ namespace Modern_Sliding_Sidebar___C_Sharp_Winform
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -35,7 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Tools\Guna.UI.dll</HintPath>
+      <HintPath>Resources\Guna\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Properties.Resources.Designer.cs">
+      <HintPath>obj\Debug\TempPE\Properties.Resources.Designer.cs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,15 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="LogicLayer\Program.cs" />
+    <Compile Include="PresentationLayer\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="PresentationLayer\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="PresentationLayer\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
