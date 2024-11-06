@@ -1,0 +1,10 @@
+1,John Doe,20,Computer Science
+2,Jane Smith,22,Mathematics
+3,Emily Johnson,21,Physics
+4,Michael Brown,23,Chemistry
+5,Sarah Davis,19,Biology
+6,David Wilson,24,Engineering
+7,Jessica Miller,20,Information Technology
+8,James Taylor,22,Economics
+9,Linda Anderson,21,Graphic Design
+10,Robert Thomas,23,History
