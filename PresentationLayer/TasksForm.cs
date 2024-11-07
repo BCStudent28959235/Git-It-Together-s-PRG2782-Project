@@ -89,7 +89,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 		private void addStudent()
 		{
-
+			int sID = int.Parse(txtID.Text);
 			try
 			{
 				var student = new Student
@@ -137,7 +137,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 
-			save();
+            Save changeLogSave = new Save();
+            changeLogSave.ChangeLog(students, sID, "Add");
+
+            save();
 		}
 
 		private void ClearInputFields()
@@ -219,6 +222,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
+			int id = 0;
 			if (txtName.Text != "" && txtAge.Text != "" && txtCourse.Text != "")
 			{
 				DataRowView currentRow = (DataRowView)src.Current;
@@ -237,7 +241,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 				student.Age = int.Parse(currentRow["Age"].ToString());
 				student.Course = currentRow["Course"].ToString();
 
-				int id = int.Parse(currentRow["ID"].ToString());
+				id = int.Parse(currentRow["ID"].ToString());
 
 				for (int k = 0; k < students.Count; k++)
 				{
@@ -254,6 +258,8 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 				MessageBox.Show("Please complete the requierd information.");
 			}
 
+			Save changeLogSave = new Save();
+            changeLogSave.ChangeLog(students, id, "Update");
 			save();
 		}
 
@@ -262,8 +268,12 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			DataRowView currentRow = (DataRowView)src.Current;
 			int id = int.Parse(currentRow["ID"].ToString());
 			currentRow.Delete();
-			//delete student from list to save updated list
-			for (int k = 0; k < students.Count; k++)
+            //delete student from list to save updated list
+
+            Save changeLogSave = new Save();
+            changeLogSave.ChangeLog(students, id, "Delete");
+
+            for (int k = 0; k < students.Count; k++)
 			{
 				if (students[k].Id == id)
 				{
@@ -271,7 +281,9 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 					break;
 				}
 			}
-			save();
+
+            
+            save();
 		}
 
 		private void save()

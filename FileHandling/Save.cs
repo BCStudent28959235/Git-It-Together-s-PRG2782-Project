@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WinFormsApp_MainProjectFile.LogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace WinFormsApp_MainProjectFile.FileHandling
@@ -55,6 +56,46 @@ namespace WinFormsApp_MainProjectFile.FileHandling
 
             myWriter.WriteLine($"Number of students: {students}");
             myWriter.WriteLine($"Average age of students: {age}");
+
+            myWriter.Close();
+            myStream.Close();
+        }
+
+        public void ChangeLog(List<Student> students, int id ,string process)
+        {
+            DateTime dateTime = DateTime.Now;
+            string now = dateTime.ToString("yyyy-mm-dd hh-mm-ss");
+
+            string name = "", age = "", course = "";
+
+            foreach (Student student in students)
+            {
+                if (student.Id == id)
+                {
+                    name = student.Name;
+                    age = student.Age.ToString();
+                    course = student.Course;
+                }
+            }
+
+            string fileName = @"C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\Debug\net8.0-windows\ChangeLog.txt";
+            FileStream myStream = new FileStream(fileName, FileMode.Append);
+            StreamWriter myWriter = new StreamWriter(myStream);
+
+            switch (process)
+            {
+                case "Add":
+                    myWriter.WriteLine($"{now} = Added new student: ID={id}, Name={name}, Age={age}, Course={course}");
+                    break;
+
+                case "Update":
+                    myWriter.WriteLine($"{now} = Updated student ID={id}, Name={name}, Age={age}, Course={course}");
+                    break;
+
+                case "Delete":
+                    myWriter.WriteLine($"{now} = Deleted student ID={id}, Name={name}");
+                    break;
+            }
 
             myWriter.Close();
             myStream.Close();
