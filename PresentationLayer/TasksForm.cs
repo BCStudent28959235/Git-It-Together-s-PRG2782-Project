@@ -301,17 +301,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
-			int studentID = int.Parse(txtSearch.Text);
-
-			foreach (Student student in students)
+			if (txtSearch.Text != "")
 			{
-				if (studentID == student.Id)
-				{
-					studentTable.Rows.Clear();
+				int studentID = int.Parse(txtSearch.Text);
 
-					studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
+				foreach (Student student in students)
+				{
+					if (studentID == student.Id)
+					{
+						studentTable.Rows.Clear();
+
+						studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
+					}
 				}
 			}
+			else
+			{
+				MessageBox.Show("Enter valid id to search");
+			}
+
 		}
 
 		private void btnDisplayAllStudents_Click(object sender, EventArgs e)
