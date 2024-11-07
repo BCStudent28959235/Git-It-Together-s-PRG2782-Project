@@ -22,5 +22,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         {
 
         }
+
+        private void customToggleButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

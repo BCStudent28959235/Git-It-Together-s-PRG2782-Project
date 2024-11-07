@@ -9,3 +9,4 @@
 10,Robert Thomas,23,History
 8,James Taylor,22,Economics
 11,James Jesse,26,Economics
+12,Adam Sandler,45,Computer Science

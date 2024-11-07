@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
 using WinFormsApp_MainProjectFile.PresentationLayer;
+using WinFormsApp_MainProjectFile.PresentationLayer.CustomControls;
+using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
 
 
 
@@ -20,9 +22,12 @@ using WinFormsApp_MainProjectFile.PresentationLayer;
 
 
 namespace WinFormsApp_MainProjectFile.PresentationLayer
-{ 
+{
     public partial class MainForm : Form
     {
+        public UCSettings ucSettings = new UCSettings();
+
+
         // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
@@ -35,63 +40,69 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
              );
 
 
-        
+
         public MainForm()
         {
             InitializeComponent();
 
-                   // Set the form's region to a rounded rectangle
-                        Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 
-                        // Initialize the navigation panel to the height and position of the Dashboard button
-                        pnlNav.Height = btnDashboard.Height;
-                        pnlNav.Top = btnDashboard.Top;
-                        pnlNav.Left = btnDashboard.Left;
-                        btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //setting initial dashboard background colour
+            // Set the form's region to a rounded rectangle
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+
+            // Initialize the navigation panel to the height and position of the Dashboard button
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //setting initial dashboard background colour
+                                                                    // Instantiate the UCSettings user control
 
 
 
+            // Add UCSettings to the form
+
+            this.Controls.Add(ucSettings);
+            // Optionally set properties or dock/size
+            ucSettings.Dock = DockStyle.Fill;  // This will fill the form's client area with the UCSettings control.
+            ucSettings.BringToFront();
+            ucSettings.Visible = false;
 
         }
-		DataTable studentTable = new DataTable();
-		BindingSource src = new BindingSource();
-		List<Student> students = new List<Student>();
-		private void MainForm_Load(object sender, EventArgs e)
+
+
+        DataTable studentTable = new DataTable();
+        BindingSource src = new BindingSource();
+        List<Student> students = new List<Student>();
+
+
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
-			studentTable.Columns.Add("ID", typeof(int));
-			studentTable.Columns.Add("Name", typeof(string));
-			studentTable.Columns.Add("Age", typeof(int));
-			studentTable.Columns.Add("Course", typeof(string));
+            studentTable.Columns.Add("ID", typeof(int));
+            studentTable.Columns.Add("Name", typeof(string));
+            studentTable.Columns.Add("Age", typeof(int));
+            studentTable.Columns.Add("Course", typeof(string));
 
-			populateStudents();
+            populateStudents();
 
-			src.DataSource = studentTable;
+            src.DataSource = studentTable;
 
             dgvStudents_pnlMainTableContainer.DataSource = src;
-		}
-		private void populateStudents()
-		{
-			Read read = new Read("Students.txt");
-			students = read.streamRead();
-
-			foreach (Student pupil in students)
-			{
-				studentTable.Rows.Add(pupil.Id, pupil.Name, pupil.Age, pupil.Course);
-			}
-
-		}
-
-		private void Timer_Sidebar_Menu_Tick(object sender, EventArgs e)
-        {
-   
-        }   
-        
-        
-
-        private void Menu_Button_Click(object sender, EventArgs e)
-        {
-            Timer_Sidebar_Menu.Start();
         }
+        private void populateStudents()
+        {
+            Read read = new Read("Students.txt");
+            students = read.streamRead();
+
+            foreach (Student pupil in students)
+            {
+                studentTable.Rows.Add(pupil.Id, pupil.Name, pupil.Age, pupil.Course);
+            }
+
+        }
+
+
+
+
 
         private void btnPrevious_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
@@ -107,13 +118,13 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         {
 
             lblTabTitle.Text = "Dashboard";
-        
+
             pnlNav.Height = btnDashboard.Height;
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
-            
-           
+
+
         }
         private void TasksForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -132,8 +143,8 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             tasksForm.Show();
 
             lblTabTitle.Text = "Student Data";
-       
-     
+
+
 
             pnlNav.Height = btnStudentData.Height;
             pnlNav.Top = btnStudentData.Top;
@@ -152,16 +163,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             btnDataSummary.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
         }
 
-     
+
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+
+
+
             lblTabTitle.Text = "Settings";
             btnDashboard.BackColor = Color.Transparent;
             pnlNav.Height = btnSettings.Height;
             pnlNav.Top = btnSettings.Top;
             pnlNav.Left = btnSettings.Left;
             btnSettings.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
+            ucSettings.Visible = true;
+
+            ucSettings.Controls.Add(cbtnCloseApp);
+
+
+
         }
         private void btnInfo_Click(object sender, EventArgs e)
         {
@@ -222,11 +242,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         }
 
-        private void btnCloseApp_Click(object sender, EventArgs e)
+ 
+        private void cbtnCloseApp_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
     }
 }
