@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp_MainProjectFile.FileHandling;
+using WinFormsApp_MainProjectFile.LogicLayer;
 using WinFormsApp_MainProjectFile.PresentationLayer;
 
 
@@ -51,14 +53,35 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
+		DataTable studentTable = new DataTable();
+		BindingSource src = new BindingSource();
+		List<Student> students = new List<Student>();
+		private void MainForm_Load(object sender, EventArgs e)
         {
+			studentTable.Columns.Add("ID", typeof(int));
+			studentTable.Columns.Add("Name", typeof(string));
+			studentTable.Columns.Add("Age", typeof(int));
+			studentTable.Columns.Add("Course", typeof(string));
 
-        }
+			populateStudents();
 
+			src.DataSource = studentTable;
 
-        private void Timer_Sidebar_Menu_Tick(object sender, EventArgs e)
+            dgvStudents_pnlMainTableContainer.DataSource = src;
+		}
+		private void populateStudents()
+		{
+			Read read = new Read("Students.txt");
+			students = read.streamRead();
+
+			foreach (Student pupil in students)
+			{
+				studentTable.Rows.Add(pupil.Id, pupil.Name, pupil.Age, pupil.Course);
+			}
+
+		}
+
+		private void Timer_Sidebar_Menu_Tick(object sender, EventArgs e)
         {
    
         }   

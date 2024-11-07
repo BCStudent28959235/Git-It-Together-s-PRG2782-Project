@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj": {}
+    "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_006\\Git-It-Together-s-PRG2782-Project\\WinFormsApp_MainProjectFile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj": {
+    "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_006\\Git-It-Together-s-PRG2782-Project\\WinFormsApp_MainProjectFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj",
+        "projectUniqueName": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_006\\Git-It-Together-s-PRG2782-Project\\WinFormsApp_MainProjectFile.csproj",
         "projectName": "WinFormsApp_MainProjectFile",
-        "projectPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj",
+        "projectPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_006\\Git-It-Together-s-PRG2782-Project\\WinFormsApp_MainProjectFile.csproj",
         "packagesPath": "C:\\Users\\purnj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\obj\\",
+        "outputPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_006\\Git-It-Together-s-PRG2782-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\purnj\\AppData\\Roaming\\NuGet\\NuGet.Config",

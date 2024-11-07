@@ -347,11 +347,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			{
 				MessageBox.Show("Finish the task please.");
 			}
-
-
-
-
-
 		}
 
 
