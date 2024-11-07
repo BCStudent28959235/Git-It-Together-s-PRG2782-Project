@@ -21,75 +21,75 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 
 
-    public partial class TasksForm : Form
+	public partial class TasksForm : Form
 	{
 
 		//UI DESIGN VARIABLES
 		int P1W;
 		int P2W;
 
-        bool P1Hidden;
+		bool P1Hidden;
 		bool P2Hidden;
-        public string iconsPath;
+		public string iconsPath;
 
-       
 
-        // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-                 int nLeftRect,
-                 int nTopRect,
-                 int nRightRect,
-                 int nBottomRect,
-                 int nWidthEllipse,
-                 int nHeightEllipse
-             );
+
+		// Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
+		[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+		private static extern IntPtr CreateRoundRectRgn(
+				 int nLeftRect,
+				 int nTopRect,
+				 int nRightRect,
+				 int nBottomRect,
+				 int nWidthEllipse,
+				 int nHeightEllipse
+			 );
 
 		public Image plusIcon;
 		public Image minusIcon;
-		public  ImageList imageList = new ImageList();
-        List<Student> students = new List<Student>();
+		public ImageList imageList = new ImageList();
+		List<Student> students = new List<Student>();
 
 		DataTable studentTable = new DataTable();
 		BindingSource src = new BindingSource();
 		public TasksForm()
 		{
 			InitializeComponent();
-            iconsPath = Application.StartupPath + @"PersonalResources\icons";
-            Image plusIcon = Image.FromFile(iconsPath + @"\Plus_L.png");
-            Image minusIcon = Image.FromFile(iconsPath + @"\Minus_L.png");
+			iconsPath = Application.StartupPath + @"PersonalResources\icons";
+			Image plusIcon = Image.FromFile(iconsPath + @"\Plus_L.png");
+			Image minusIcon = Image.FromFile(iconsPath + @"\Minus_L.png");
 
-            imageList.Images.Add(plusIcon);
+			imageList.Images.Add(plusIcon);
 			imageList.Images.Add(minusIcon);
-            cqpSlidingPanel1.Width = 0;
-            cqpSlidingPanel2.Width = 0;
+			cqpSlidingPanel1.Width = 0;
+			cqpSlidingPanel2.Width = 0;
 
-            // Set the form's region to a rounded rectangle
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-			P1W =250;
+			// Set the form's region to a rounded rectangle
+			Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+			P1W = 250;
 			P1Hidden = true;
 
 			P2W = 250;
 			P2Hidden = true;
-		
+
 			btnOpenCloseSliderpnl1.ImageList = imageList;
 			btnOpenCloseSliderpnl2.ImageList = imageList;
 
-            btnOpenCloseSliderpnl1.Image = imageList.Images[0];
-            btnOpenCloseSliderpnl2.Image = imageList.Images[0];
+			btnOpenCloseSliderpnl1.Image = imageList.Images[0];
+			btnOpenCloseSliderpnl2.Image = imageList.Images[0];
 
 
 
-        }
+		}
 
-        private void btnAdd_Click(object sender, EventArgs e)
+		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			addStudent();
 		}
 
 		private void addStudent()
 		{
-			
+
 			try
 			{
 				var student = new Student
@@ -116,15 +116,15 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 				{
 					MessageBox.Show("Student ID already taken");
 				}
-                else
-                {
-                    students.Add(student);
-                    studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
-                    save();
+				else
+				{
+					students.Add(student);
+					studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
+					save();
 
-                    // Clear input fields after adding the student
-                    ClearInputFields();
-                }
+					// Clear input fields after adding the student
+					ClearInputFields();
+				}
 
 
 			}
@@ -153,7 +153,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			studentTable.Columns.Add("ID", typeof(int));
 			studentTable.Columns.Add("Name", typeof(string));
 			studentTable.Columns.Add("Age", typeof(int));
-			studentTable.Columns.Add("Course",typeof(string));
+			studentTable.Columns.Add("Course", typeof(string));
 
 			populateStudents();
 
@@ -197,15 +197,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			catch (Exception error)
 			{
 				Console.WriteLine($"Error: {error.Message}");
+				MessageBox.Show(error.Message);
 			}
 		}
 
-		
-
-		private void dgvStudents_SelectionChanged(object sender, EventArgs e)
-		{
-			display();
-		}
 
 		private void btnNext_Click(object sender, EventArgs e)
 		{
@@ -224,34 +219,40 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
-			DataRowView currentRow = (DataRowView)src.Current;
-			//should not be able to edit id
-			//currentRow["ID"] = int.Parse(txtID.Text);
-			currentRow["Name"] = txtName.Text;
-			currentRow["Age"] = int.Parse(txtAge.Text);
-			currentRow["Course"] = txtCourse.Text;
-
-			currentRow.EndEdit();
-
-			//create a new student object to replace the old one
-			Student student = new Student();
-			student.Id = int.Parse(currentRow["ID"].ToString());
-			student.Name = currentRow["Name"].ToString();
-			student.Age = int.Parse(currentRow["Age"].ToString());
-			student.Course = currentRow["Course"].ToString();
-
-			int id = int.Parse(currentRow["ID"].ToString());
-	
-			for (int k = 0; k < students.Count; k++)
+			if (txtName.Text != "" && txtAge.Text != "" && txtCourse.Text != "")
 			{
-				if (students[k].Id == id)
+				DataRowView currentRow = (DataRowView)src.Current;
+				//should not be able to edit id
+				//currentRow["ID"] = int.Parse(txtID.Text);
+				currentRow["Name"] = txtName.Text;
+				currentRow["Age"] = int.Parse(txtAge.Text);
+				currentRow["Course"] = txtCourse.Text;
+
+				currentRow.EndEdit();
+
+				//create a new student object to replace the old one
+				Student student = new Student();
+				student.Id = int.Parse(currentRow["ID"].ToString());
+				student.Name = currentRow["Name"].ToString();
+				student.Age = int.Parse(currentRow["Age"].ToString());
+				student.Course = currentRow["Course"].ToString();
+
+				int id = int.Parse(currentRow["ID"].ToString());
+
+				for (int k = 0; k < students.Count; k++)
 				{
-					students.RemoveAt(k);
-					students.Add(student);
-					break;
+					if (students[k].Id == id)
+					{
+						students.RemoveAt(k);
+						students.Add(student);
+						break;
+					}
 				}
 			}
-
+			else
+			{
+				MessageBox.Show("Please complete the requierd information.");
+			}
 
 			save();
 		}
@@ -279,14 +280,14 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			save.streamWrite(students);
 		}
 
-        private void btnGenerateSummary_Click(object sender, EventArgs e)
-        {
+		private void btnGenerateSummary_Click(object sender, EventArgs e)
+		{
 			int stdCount = students.Count;
 			float avgStdAge = 0, stdAgeTotal = 0;
 
 			for (int i = 0; i < students.Count; i++)
 			{
-                stdAgeTotal += students[i].Age;
+				stdAgeTotal += students[i].Age;
 			}
 
 			avgStdAge = stdAgeTotal / students.Count;
@@ -296,10 +297,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 			Save save = new Save();
 			save.GenerateSummary(stdCount, avgStdAge);
-        }
+		}
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
+		private void btnSearch_Click(object sender, EventArgs e)
+		{
 			int studentID = int.Parse(txtSearch.Text);
 
 			foreach (Student student in students)
@@ -311,16 +312,16 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 					studentTable.Rows.Add(student.Id, student.Name, student.Age, student.Course);
 				}
 			}
-        }
+		}
 
-        private void btnDisplayAllStudents_Click(object sender, EventArgs e)
-        {
-            studentTable.Rows.Clear();
-            populateStudents();
-        }
+		private void btnDisplayAllStudents_Click(object sender, EventArgs e)
+		{
+			studentTable.Rows.Clear();
+			populateStudents();
+		}
 
-        private void btnCloseTasksForm_Click(object sender, EventArgs e)
-        {
+		private void btnCloseTasksForm_Click(object sender, EventArgs e)
+		{
 			int tasks = 0;
 			if (txtID.Text != "")
 			{
@@ -348,91 +349,96 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 			}
 
 
-			
-
-
-        }
-
-     
 
 
 
+		}
 
-        private void tmerSlidePanelOpen_Tick(object sender, EventArgs e)
-        {
-    
-            if (P1Hidden)
-            {
-                cqpSlidingPanel1.Width += 40;
 
-                if (cqpSlidingPanel1.Width >= P1W)
-                {
-                    tmerSlidePanelOpen.Stop();
-                    P1Hidden = false;
-                   
+
+
+
+
+		private void tmerSlidePanelOpen_Tick(object sender, EventArgs e)
+		{
+
+			if (P1Hidden)
+			{
+				cqpSlidingPanel1.Width += 40;
+
+				if (cqpSlidingPanel1.Width >= P1W)
+				{
+					tmerSlidePanelOpen.Stop();
+					P1Hidden = false;
+
 					btnOpenCloseSliderpnl1.Image = imageList.Images[1];
 
-                    this.Refresh();
-                }
-            }
-            else
-            {
-                cqpSlidingPanel1.Width -= 40;
+					this.Refresh();
+				}
+			}
+			else
+			{
+				cqpSlidingPanel1.Width -= 40;
 
-                if (cqpSlidingPanel1.Width <= 0)
-                {
-                    tmerSlidePanelOpen.Stop();
-                    P1Hidden = true;
-                    // Change back to plus icon when panel closes
-                   btnOpenCloseSliderpnl1.Image = imageList.Images[0];
+				if (cqpSlidingPanel1.Width <= 0)
+				{
+					tmerSlidePanelOpen.Stop();
+					P1Hidden = true;
+					// Change back to plus icon when panel closes
+					btnOpenCloseSliderpnl1.Image = imageList.Images[0];
 
-                    this.Refresh();
-                }
-            }
-        }
-
-
-        
-
-        private void btnOpenCloseSliderpnl1_Click(object sender, EventArgs e)
-        {
-            tmerSlidePanelOpen.Start();
-        }
+					this.Refresh();
+				}
+			}
+		}
 
 
-        private void btnOpenCloseSliderpnl2_Click(object sender, EventArgs e)
-        {
+
+
+		private void btnOpenCloseSliderpnl1_Click(object sender, EventArgs e)
+		{
+			tmerSlidePanelOpen.Start();
+		}
+
+
+		private void btnOpenCloseSliderpnl2_Click(object sender, EventArgs e)
+		{
 			tmerSlidePanelOpen2.Start();
 
-        }
+		}
 
-        private void tmerSlidePanelOpen2_Tick(object sender, EventArgs e)
-        {
-            if (P2Hidden)
-            {
-                cqpSlidingPanel2.Width += 50;
+		private void tmerSlidePanelOpen2_Tick(object sender, EventArgs e)
+		{
+			if (P2Hidden)
+			{
+				cqpSlidingPanel2.Width += 50;
 
-                if (cqpSlidingPanel2.Width >= P2W)
-                {
-                    tmerSlidePanelOpen2.Stop();
-                    P2Hidden = false;
+				if (cqpSlidingPanel2.Width >= P2W)
+				{
+					tmerSlidePanelOpen2.Stop();
+					P2Hidden = false;
 					btnOpenCloseSliderpnl2.Image = imageList.Images[1];
-                 
-                    this.Refresh();
-                }
-            }
-            else
-            {
-                cqpSlidingPanel2.Width -= 50;
 
-                if (cqpSlidingPanel2.Width <= 0)
-                {
-                    tmerSlidePanelOpen2.Stop();
-                    P2Hidden = true;
+					this.Refresh();
+				}
+			}
+			else
+			{
+				cqpSlidingPanel2.Width -= 50;
+
+				if (cqpSlidingPanel2.Width <= 0)
+				{
+					tmerSlidePanelOpen2.Stop();
+					P2Hidden = true;
 					btnOpenCloseSliderpnl2.Image = imageList.Images[0];
-                    this.Refresh();
-                }
-            }
-        }
-    }
+					this.Refresh();
+				}
+			}
+		}
+
+		private void dgvStudents_SelectionChanged_1(object sender, EventArgs e)
+		{
+			display();
+		}
+	}
 }

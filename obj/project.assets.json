@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Katryn\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\purnj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Katryn\\Desktop\\Project\\HoofRepos\\layout\\WinFormsApp_MainProjectFile\\WinFormsApp_MainProjectFile.csproj",
+      "projectUniqueName": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj",
       "projectName": "WinFormsApp_MainProjectFile",
-      "projectPath": "C:\\Users\\Katryn\\Desktop\\Project\\HoofRepos\\layout\\WinFormsApp_MainProjectFile\\WinFormsApp_MainProjectFile.csproj",
-      "packagesPath": "C:\\Users\\Katryn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Katryn\\Desktop\\Project\\HoofRepos\\layout\\WinFormsApp_MainProjectFile\\obj\\",
+      "projectPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\WinFormsApp_MainProjectFile.csproj",
+      "packagesPath": "C:\\Users\\purnj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\purnj\\Desktop\\BC\\2024\\PRG282\\Project\\version_005\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Katryn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\purnj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,9 +45,8 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+        "auditMode": "direct"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -76,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
