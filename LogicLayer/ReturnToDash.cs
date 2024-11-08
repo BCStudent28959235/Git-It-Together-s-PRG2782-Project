@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp_MainProjectFile.LogicLayer
 {
-    public class CloseProgram
+    public class ReturnToDash
     {
         
+
+
+
     }
 }

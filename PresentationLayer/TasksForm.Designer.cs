@@ -34,6 +34,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnCloseTasksForm = new Button();
             pnlMainPanel = new Panel();
             pnlTasksTableContainer = new Panel();
+            cbtnCloseChildFormTasks = new CustomControls.CustomButtons();
             pnlSliderHolder1 = new Panel();
             cqpSlidingPanel1 = new CustomControls.CustomQuadColourGradientPanels();
             pnlEditTableContainer = new Panel();
@@ -72,6 +73,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnSearch = new Button();
             tmerSlidePanelOpen = new System.Windows.Forms.Timer(components);
             tmerSlidePanelOpen2 = new System.Windows.Forms.Timer(components);
+            panel1 = new Panel();
             pnlMainPanel.SuspendLayout();
             pnlTasksTableContainer.SuspendLayout();
             pnlSliderHolder1.SuspendLayout();
@@ -102,17 +104,19 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // pnlMainPanel
             // 
+            pnlMainPanel.Controls.Add(panel1);
             pnlMainPanel.Controls.Add(pnlTasksTableContainer);
             pnlMainPanel.Dock = DockStyle.Fill;
             pnlMainPanel.Location = new Point(0, 0);
             pnlMainPanel.Margin = new Padding(4, 3, 4, 3);
             pnlMainPanel.Name = "pnlMainPanel";
-            pnlMainPanel.Size = new Size(1205, 762);
+            pnlMainPanel.Size = new Size(1285, 825);
             pnlMainPanel.TabIndex = 25;
             // 
             // pnlTasksTableContainer
             // 
             pnlTasksTableContainer.BackColor = Color.FromArgb(253, 243, 235);
+            pnlTasksTableContainer.Controls.Add(cbtnCloseChildFormTasks);
             pnlTasksTableContainer.Controls.Add(pnlSliderHolder1);
             pnlTasksTableContainer.Controls.Add(pnlSliderHolder2);
             pnlTasksTableContainer.Controls.Add(btnDisplayAllStudents);
@@ -122,20 +126,42 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlTasksTableContainer.Controls.Add(btnPrevious);
             pnlTasksTableContainer.Controls.Add(dgvStudents);
             pnlTasksTableContainer.Controls.Add(btnSearch);
-            pnlTasksTableContainer.Location = new Point(14, 37);
+            pnlTasksTableContainer.Dock = DockStyle.Fill;
+            pnlTasksTableContainer.Location = new Point(0, 0);
             pnlTasksTableContainer.Margin = new Padding(4, 3, 4, 3);
             pnlTasksTableContainer.Name = "pnlTasksTableContainer";
-            pnlTasksTableContainer.Size = new Size(1177, 688);
+            pnlTasksTableContainer.Size = new Size(1285, 825);
             pnlTasksTableContainer.TabIndex = 34;
+            // 
+            // cbtnCloseChildFormTasks
+            // 
+            cbtnCloseChildFormTasks.BackColor = Color.FromArgb(255, 128, 0);
+            cbtnCloseChildFormTasks.BackgroundColor = Color.FromArgb(255, 128, 0);
+            cbtnCloseChildFormTasks.BorderColor = Color.Black;
+            cbtnCloseChildFormTasks.BorderRadius = 20;
+            cbtnCloseChildFormTasks.BorderSize = 0;
+            cbtnCloseChildFormTasks.FlatAppearance.BorderColor = Color.Black;
+            cbtnCloseChildFormTasks.FlatAppearance.BorderSize = 0;
+            cbtnCloseChildFormTasks.FlatStyle = FlatStyle.Flat;
+            cbtnCloseChildFormTasks.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbtnCloseChildFormTasks.ForeColor = Color.White;
+            cbtnCloseChildFormTasks.Image = (Image)resources.GetObject("cbtnCloseChildFormTasks.Image");
+            cbtnCloseChildFormTasks.Location = new Point(1188, 23);
+            cbtnCloseChildFormTasks.Name = "cbtnCloseChildFormTasks";
+            cbtnCloseChildFormTasks.Size = new Size(89, 76);
+            cbtnCloseChildFormTasks.TabIndex = 36;
+            cbtnCloseChildFormTasks.TextColor = Color.White;
+            cbtnCloseChildFormTasks.UseVisualStyleBackColor = false;
+            cbtnCloseChildFormTasks.Click += cbtnCloseChildFormTasks_Click;
             // 
             // pnlSliderHolder1
             // 
             pnlSliderHolder1.Controls.Add(cqpSlidingPanel1);
             pnlSliderHolder1.Controls.Add(cgpSliderTab1);
-            pnlSliderHolder1.Location = new Point(40, 125);
+            pnlSliderHolder1.Location = new Point(231, 158);
             pnlSliderHolder1.Margin = new Padding(4, 3, 4, 3);
             pnlSliderHolder1.Name = "pnlSliderHolder1";
-            pnlSliderHolder1.Size = new Size(350, 438);
+            pnlSliderHolder1.Size = new Size(324, 438);
             pnlSliderHolder1.TabIndex = 35;
             // 
             // cqpSlidingPanel1
@@ -150,7 +176,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel1.GradientCenterX = 0.5F;
             cqpSlidingPanel1.GradientCenterY = 0.5F;
             cqpSlidingPanel1.GradientResolution = 1;
-            cqpSlidingPanel1.Location = new Point(11, 0);
+            cqpSlidingPanel1.Location = new Point(6, 0);
             cqpSlidingPanel1.Margin = new Padding(4, 3, 4, 3);
             cqpSlidingPanel1.Name = "cqpSlidingPanel1";
             cqpSlidingPanel1.Opacity = 255;
@@ -158,7 +184,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel1.OpacityColourOne = 255;
             cqpSlidingPanel1.OpacityColourThree = 255;
             cqpSlidingPanel1.OpacityColourTwo = 255;
-            cqpSlidingPanel1.Size = new Size(292, 438);
+            cqpSlidingPanel1.Size = new Size(271, 438);
             cqpSlidingPanel1.TabIndex = 32;
             cqpSlidingPanel1.UseRadialGradient = true;
             // 
@@ -178,10 +204,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlEditTableContainer.Controls.Add(lblName);
             pnlEditTableContainer.Controls.Add(txtID);
             pnlEditTableContainer.Controls.Add(lblID);
-            pnlEditTableContainer.Location = new Point(36, 43);
+            pnlEditTableContainer.Location = new Point(48, 49);
             pnlEditTableContainer.Margin = new Padding(4, 3, 4, 3);
             pnlEditTableContainer.Name = "pnlEditTableContainer";
-            pnlEditTableContainer.Size = new Size(279, 362);
+            pnlEditTableContainer.Size = new Size(223, 362);
             pnlEditTableContainer.TabIndex = 27;
             // 
             // label8
@@ -330,7 +356,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cgpSliderTab1.Controls.Add(btnOpenCloseSliderpnl1);
             cgpSliderTab1.Dock = DockStyle.Right;
             cgpSliderTab1.GradientAngle = 180F;
-            cgpSliderTab1.Location = new Point(303, 0);
+            cgpSliderTab1.Location = new Point(277, 0);
             cgpSliderTab1.Margin = new Padding(4, 3, 4, 3);
             cgpSliderTab1.Name = "cgpSliderTab1";
             cgpSliderTab1.OpacityColourOne = 255;
@@ -357,10 +383,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             pnlSliderHolder2.Controls.Add(cqpSlidingPanel2);
             pnlSliderHolder2.Controls.Add(cgpSliderTab2);
-            pnlSliderHolder2.Location = new Point(789, 125);
+            pnlSliderHolder2.Location = new Point(954, 158);
             pnlSliderHolder2.Margin = new Padding(4, 3, 4, 3);
             pnlSliderHolder2.Name = "pnlSliderHolder2";
-            pnlSliderHolder2.Size = new Size(350, 438);
+            pnlSliderHolder2.Size = new Size(324, 438);
             pnlSliderHolder2.TabIndex = 35;
             // 
             // cqpSlidingPanel2
@@ -383,7 +409,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel2.OpacityColourOne = 255;
             cqpSlidingPanel2.OpacityColourThree = 255;
             cqpSlidingPanel2.OpacityColourTwo = 255;
-            cqpSlidingPanel2.Size = new Size(292, 438);
+            cqpSlidingPanel2.Size = new Size(271, 438);
             cqpSlidingPanel2.TabIndex = 33;
             cqpSlidingPanel2.UseRadialGradient = true;
             // 
@@ -396,10 +422,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlSummaryContainer.Controls.Add(label6);
             pnlSummaryContainer.Controls.Add(label5);
             pnlSummaryContainer.Controls.Add(btnGenerateSummary);
-            pnlSummaryContainer.Location = new Point(0, 60);
+            pnlSummaryContainer.Location = new Point(4, 60);
             pnlSummaryContainer.Margin = new Padding(4, 3, 4, 3);
             pnlSummaryContainer.Name = "pnlSummaryContainer";
-            pnlSummaryContainer.Size = new Size(227, 351);
+            pnlSummaryContainer.Size = new Size(223, 362);
             pnlSummaryContainer.TabIndex = 28;
             // 
             // lblSummaryLabel
@@ -504,7 +530,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnDisplayAllStudents.FlatAppearance.BorderSize = 0;
             btnDisplayAllStudents.FlatStyle = FlatStyle.Flat;
             btnDisplayAllStudents.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDisplayAllStudents.Location = new Point(541, 629);
+            btnDisplayAllStudents.Location = new Point(694, 660);
             btnDisplayAllStudents.Margin = new Padding(2);
             btnDisplayAllStudents.Name = "btnDisplayAllStudents";
             btnDisplayAllStudents.Size = new Size(97, 29);
@@ -517,7 +543,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(428, 66);
+            lblSearch.Location = new Point(577, 98);
             lblSearch.Margin = new Padding(2, 0, 2, 0);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(121, 14);
@@ -530,7 +556,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Consolas", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtSearch.ForeColor = Color.Black;
-            txtSearch.Location = new Point(574, 66);
+            txtSearch.Location = new Point(739, 99);
             txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(130, 22);
@@ -542,7 +568,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnNext.FlatAppearance.BorderSize = 0;
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNext.Location = new Point(600, 598);
+            btnNext.Location = new Point(765, 631);
             btnNext.Margin = new Padding(2, 3, 2, 3);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(105, 25);
@@ -557,7 +583,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnPrevious.FlatAppearance.BorderSize = 0;
             btnPrevious.FlatStyle = FlatStyle.Flat;
             btnPrevious.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrevious.Location = new Point(483, 598);
+            btnPrevious.Location = new Point(648, 631);
             btnPrevious.Margin = new Padding(2, 3, 2, 3);
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new Size(105, 25);
@@ -572,7 +598,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             dgvStudents.BackgroundColor = Color.White;
             dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudents.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvStudents.Location = new Point(391, 102);
+            dgvStudents.Location = new Point(556, 135);
             dgvStudents.Margin = new Padding(2, 3, 2, 3);
             dgvStudents.MultiSelect = false;
             dgvStudents.Name = "dgvStudents";
@@ -592,7 +618,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(709, 57);
+            btnSearch.Location = new Point(874, 90);
             btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 39);
@@ -610,19 +636,26 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             tmerSlidePanelOpen2.Interval = 35;
             tmerSlidePanelOpen2.Tick += tmerSlidePanelOpen2_Tick;
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(217, 825);
+            panel1.TabIndex = 35;
+            // 
             // TasksForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             CancelButton = btnCloseTasksForm;
-            ClientSize = new Size(1205, 762);
+            ClientSize = new Size(1285, 825);
             Controls.Add(pnlMainPanel);
             Controls.Add(btnCloseTasksForm);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2, 3, 2, 3);
             Name = "TasksForm";
-            StartPosition = FormStartPosition.CenterScreen;
             Load += Form1_Load;
             pnlMainPanel.ResumeLayout(false);
             pnlTasksTableContainer.ResumeLayout(false);
@@ -683,6 +716,8 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
         public System.Windows.Forms.Panel pnlMainPanel;
         public System.Windows.Forms.Timer tmerSlidePanelOpen;
         private System.Windows.Forms.Timer tmerSlidePanelOpen2;
+        private CustomControls.CustomButtons cbtnCloseChildFormTasks;
+        private Panel panel1;
     }
 }
 

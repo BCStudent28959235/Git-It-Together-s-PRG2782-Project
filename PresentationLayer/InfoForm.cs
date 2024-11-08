@@ -8,24 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace WinFormsApp_MainProjectFile.PresentationLayer
 {
-    public partial class TesterForm : Form
+    public partial class InfoForm : Form
     {
-        public TesterForm()
+        public event Action OnFormClosed;
+        public InfoForm()
         {
             InitializeComponent();
         }
 
-        private void TesterForm_Load(object sender, EventArgs e)
+
+        private void cbtnCloseChildFornInfo_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void customToggleButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
+            OnFormClosed?.Invoke();
+            this.Close();
         }
     }
 }

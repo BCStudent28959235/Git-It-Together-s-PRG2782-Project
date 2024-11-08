@@ -117,4 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cbtnTaskFormOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADDSURBVEhL7ZZRCsMgEES9hvrd+9+hIedqs2UUO9jurkQo
+        qQMDcZ/jooaQsPSfijHuKaUHeQNW+bA6i74MrPJh9RYVA89tnHO+YRjkuV1Y43QV9itoQm8GdnOUdXGw
+        GPi3G8vx8xWoahdrDezmKOviYDHwaqxylHVxsBh4buNvHwgr57oqmdwzsJujrEsmW3aE4UV23DPw1MYb
+        hw/fgb281peq6IjO9ucfAoE0+Uzb77qEMDRrNFd1hOUE3G/laO7KCuEJsauMeeyAwi4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="cbtnCloseChildForm1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAH8SURBVHhe7ZFLasRADETnHHOy7DLJKvff5iuHcmMamZru
+        krANelCQWF2lz9yKoiiKoij2uN/vv1cW1pjHC72SsMY8XuiVhDXm8UKvJKwxT3hgMuHzhgcmEz5veGAy
+        4fOGByYTPm94YDLh84YHbrC8l0X4N4TtrIvweZ7wQGBZD9MX9MBnmWXGrfB5nvBAw3LeTN+b3B/TB8oS
+        m8yYeaMDLaNfflXIEbrMcx3A/HvLr5KP0OWd5wDmfTf1yy//e9/eYRumyzrHAczn/fL/v7Zptwb7EF3O
+        8QcwD13Q/g47Qpdx7AHs/dOL2beQI3T+4w5gb4cXspp8hM57zAHs3fQi9kY6QueLP8CkRn9F7whTQuQ8
+        XuighpZfMU/IERA3jxc6oKnlV8wrHwFR83ihT+rT9IqYaZYMZHk9qBCjkxYcRPp86Q1E0udLbyCSPl96
+        A5H0+dIbiKTPl95AJH0+1mC0zgRbQ63LsAajdSbYGmpdhjUYrTPB1lDrMqzBaJ0JtoZal2ENzl6XYQ3O
+        XpdhDc5el2ENzl6XURswP6szVD9FbcD8rM5Q/RS1AfOzOkP1U9QGzM/qDNVPURswP6szVD9FbcD8rM5Q
+        /ZS+gSrENrw3ihAbh9dEEWIb3htFiI3Da6IIsQ3vjSLExuE1UYTYhvdGEWKLoiiKoih2uN3+AA1Fabxm
+        /eyTAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

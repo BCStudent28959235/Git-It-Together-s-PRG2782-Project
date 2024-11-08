@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,8 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
-using WinFormsApp_MainProjectFile.PresentationLayer;
-using WinFormsApp_MainProjectFile.PresentationLayer.CustomControls;
+
 using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
 
 
@@ -25,9 +25,9 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 {
     public partial class MainForm : Form
     {
-        public UCSettings ucSettings = new UCSettings();
-
-
+        public SettingsForm ucSettings = new SettingsForm();
+        public Panel childFormPanel = new Panel();
+        private ShowChildForm childFormDisplayer;
         // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
@@ -46,27 +46,40 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             InitializeComponent();
 
 
-            // Set the form's region to a rounded rectangle
+
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 
-            // Initialize the navigation panel to the height and position of the Dashboard button
+
             pnlNav.Height = btnDashboard.Height;
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //setting initial dashboard background colour
-                                                                    // Instantiate the UCSettings user control
+
+            // childFormPanel = gpnlMainFormContainer;
 
 
 
-            // Add UCSettings to the form
+            this.Controls.Add(childFormPanel);
+            childFormPanel.Dock = DockStyle.Fill;
+            childFormPanel.Location = new Point(0, 0);
+            childFormPanel.Size = new Size(1285, 825);
+            childFormPanel.BringToFront();
+            childFormPanel.Visible = false;
+            childFormPanel.BackColor = Color.Black;
+            pnlNavContainer.BringToFront();
 
-            this.Controls.Add(ucSettings);
-            // Optionally set properties or dock/size
-            ucSettings.Dock = DockStyle.Fill;  // This will fill the form's client area with the UCSettings control.
-            ucSettings.BringToFront();
-            ucSettings.Visible = false;
+
+            childFormDisplayer = new ShowChildForm(childFormPanel);
+
+
+
 
         }
+
+
+
+
+
 
 
         DataTable studentTable = new DataTable();
@@ -104,13 +117,15 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 
 
+
         private void btnPrevious_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
-
+            //Implement  logic
         }
 
         private void btnNext_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
+            //Implement next logic
 
         }
 
@@ -123,47 +138,76 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
-
-
-        }
-        private void TasksForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            btnDashboard.BackColor = Color.Transparent;
-            pnlNav.Height = btnStudentData.Height;
-            pnlNav.Top = btnStudentData.Top;
-            pnlNav.Left = btnStudentData.Left;
-            btnStudentData.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
+            childFormPanel.Controls.Clear();
+            childFormPanel.Hide();
 
         }
+
+
 
         private void btnStudentData_Click(object sender, EventArgs e)
         {
-            TasksForm tasksForm = new TasksForm();
 
-            tasksForm.Show();
+
+
+
 
             lblTabTitle.Text = "Student Data";
-
-
 
             pnlNav.Height = btnStudentData.Height;
             pnlNav.Top = btnStudentData.Top;
             pnlNav.Left = btnStudentData.Left;
             btnStudentData.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
             btnDashboard.BackColor = Color.Transparent; //add to theme handler
+
+            childFormPanel.Visible = true;
+
+            TasksForm childForm = new TasksForm();
+            childForm.OnFormClosed += TesterForm_OnFormClosed;
+            childFormDisplayer.DisplayForm(childForm);
+            TasksForm tasksForm = new TasksForm();
+            tasksForm.Dock = DockStyle.Fill;
+            tasksForm.TopLevel = false;
+            childFormPanel.Controls.Clear();
+            childFormPanel.Controls.Add(tasksForm);
+            tasksForm.Show();
+
+
         }
 
         private void btnDataSummary_Click(object sender, EventArgs e)
         {
-            lblTabTitle.Text = "Summary";
+            lblTabTitle.Text = "Changelog";
             btnDashboard.BackColor = Color.Transparent;
-            pnlNav.Height = btnDataSummary.Height;
-            pnlNav.Top = btnDataSummary.Top;
-            pnlNav.Left = btnDataSummary.Left;
-            btnDataSummary.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
+            pnlNav.Height = btnChangelog.Height;
+            pnlNav.Top = btnChangelog.Top;
+            pnlNav.Left = btnChangelog.Left;
+            btnChangelog.BackColor = Color.FromArgb(240, 210, 144);
+
+
+            childFormPanel.Visible = true;
+            ChangelogForm testerForm = new ChangelogForm();
+            testerForm.OnFormClosed += TesterForm_OnFormClosed;
+            childFormDisplayer.DisplayForm(testerForm);
         }
 
+        private void btnChangelog_Click(object sender, EventArgs e)
+        {
 
+        }
+        private void TesterForm_OnFormClosed()
+        {
+
+            btnDashboard.BackColor = Color.FromArgb(240, 210, 144);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+
+
+
+            childFormPanel.Controls.Clear();
+            childFormPanel.Visible = false;
+        }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -176,21 +220,32 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNav.Top = btnSettings.Top;
             pnlNav.Left = btnSettings.Left;
             btnSettings.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
-            ucSettings.Visible = true;
 
-            ucSettings.Controls.Add(cbtnCloseApp);
+
+            // Show the child form in the panel
+            childFormPanel.Visible = true;
+            SettingsForm testerForm = new SettingsForm();
+            testerForm.OnFormClosed += TesterForm_OnFormClosed;
+            childFormDisplayer.DisplayForm(testerForm);
 
 
 
         }
         private void btnInfo_Click(object sender, EventArgs e)
         {
+
             lblTabTitle.Text = "Info";
             btnDashboard.BackColor = Color.Transparent;
             pnlNav.Height = btnInfo.Height;
             pnlNav.Top = btnInfo.Top;
             pnlNav.Left = btnInfo.Left;
             btnInfo.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler
+
+            childFormPanel.Visible = true;
+            InfoForm testerForm = new InfoForm();
+            testerForm.OnFormClosed += TesterForm_OnFormClosed; // Subscribe to the event
+            childFormDisplayer.DisplayForm(testerForm);
+
         }
 
 
@@ -220,7 +275,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
             //add in check to make sure its one of the buttons on the panel first
 
-            btnDataSummary.BackColor = Color.Transparent; //add to theme handler
+            btnChangelog.BackColor = Color.Transparent; //add to theme handler
         }
 
 
@@ -242,10 +297,11 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         }
 
- 
+
         private void cbtnCloseApp_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

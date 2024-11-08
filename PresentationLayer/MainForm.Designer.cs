@@ -35,29 +35,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            pnlContainerBottom = new Panel();
-            rtxtStatusContextLower = new RichTextBox();
-            lblStatusLower = new Label();
-            gpnlContainerBottomTop = new CustomGradientPanels();
             pnlNavContainer = new CustomGradientPanels();
             pnlNav = new Panel();
             btnSettings = new Button();
             btnInfo = new Button();
-            btnDataSummary = new Button();
+            btnChangelog = new Button();
             btnStudentData = new Button();
             btnDashboard = new Button();
             pnlTabTitleContainer = new Panel();
             lblTabTitle = new Label();
-            mainFormPnlContainer = new CustomGradientPanels();
+            gpnlMainFormContainer = new CustomGradientPanels();
             cbtnCloseApp = new CustomButtons();
             btnClearSearch = new Button();
-            gpnlContainerMiddleTop = new CustomGradientPanels();
-            lblStatusTitle = new Label();
-            rtxtStatusContent = new RichTextBox();
-            pnlContainerMiddle = new Panel();
-            mcCalendar_pnlCalendarContainer = new MonthCalendar();
-            gpnlCalenderContainerTop = new CustomGradientPanels();
             pnlCalendarContainer = new Panel();
+            gpnlCalenderContainerTop = new CustomGradientPanels();
+            mcCalendar_pnlCalendarContainer = new MonthCalendar();
+            pnlContainerMiddle = new Panel();
+            rtxtStatusContent = new RichTextBox();
+            lblStatusTitle = new Label();
+            gpnlContainerMiddleTop = new CustomGradientPanels();
             pnlTableContainer = new Panel();
             dgvStudents_pnlMainTableContainer = new DataGridView();
             btnPrevious_pnlMainTableContainer = new Button();
@@ -65,76 +61,15 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             gpnlTopTableContainer = new CustomGradientPanels();
             pnlMainTableContainer = new Panel();
             txtSearchBox = new TextBox();
-            pnlContainerBottom.SuspendLayout();
             pnlNavContainer.SuspendLayout();
             pnlTabTitleContainer.SuspendLayout();
-            mainFormPnlContainer.SuspendLayout();
-            pnlContainerMiddle.SuspendLayout();
+            gpnlMainFormContainer.SuspendLayout();
             pnlCalendarContainer.SuspendLayout();
+            pnlContainerMiddle.SuspendLayout();
             pnlTableContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents_pnlMainTableContainer).BeginInit();
             pnlMainTableContainer.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlContainerBottom
-            // 
-            pnlContainerBottom.BackColor = Color.White;
-            pnlContainerBottom.BorderStyle = BorderStyle.FixedSingle;
-            pnlContainerBottom.Controls.Add(rtxtStatusContextLower);
-            pnlContainerBottom.Controls.Add(lblStatusLower);
-            pnlContainerBottom.Controls.Add(gpnlContainerBottomTop);
-            pnlContainerBottom.ForeColor = Color.FromArgb(50, 12, 27);
-            pnlContainerBottom.Location = new Point(724, 587);
-            pnlContainerBottom.Margin = new Padding(4);
-            pnlContainerBottom.Name = "pnlContainerBottom";
-            pnlContainerBottom.Size = new Size(474, 203);
-            pnlContainerBottom.TabIndex = 10;
-            // 
-            // rtxtStatusContextLower
-            // 
-            rtxtStatusContextLower.AcceptsTab = true;
-            rtxtStatusContextLower.BackColor = Color.White;
-            rtxtStatusContextLower.BorderStyle = BorderStyle.None;
-            rtxtStatusContextLower.Dock = DockStyle.Bottom;
-            rtxtStatusContextLower.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtxtStatusContextLower.ForeColor = Color.Black;
-            rtxtStatusContextLower.Location = new Point(0, 47);
-            rtxtStatusContextLower.Margin = new Padding(0);
-            rtxtStatusContextLower.MaxLength = 500;
-            rtxtStatusContextLower.Name = "rtxtStatusContextLower";
-            rtxtStatusContextLower.ReadOnly = true;
-            rtxtStatusContextLower.ScrollBars = RichTextBoxScrollBars.Vertical;
-            rtxtStatusContextLower.Size = new Size(472, 154);
-            rtxtStatusContextLower.TabIndex = 0;
-            rtxtStatusContextLower.Text = "heyheyhey Put in status content here";
-            // 
-            // lblStatusLower
-            // 
-            lblStatusLower.Anchor = AnchorStyles.Bottom;
-            lblStatusLower.AutoSize = true;
-            lblStatusLower.FlatStyle = FlatStyle.Flat;
-            lblStatusLower.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatusLower.ForeColor = Color.Black;
-            lblStatusLower.Location = new Point(21, 13);
-            lblStatusLower.Margin = new Padding(4, 0, 4, 0);
-            lblStatusLower.Name = "lblStatusLower";
-            lblStatusLower.Size = new Size(64, 18);
-            lblStatusLower.TabIndex = 0;
-            lblStatusLower.Text = "Status";
-            // 
-            // gpnlContainerBottomTop
-            // 
-            gpnlContainerBottomTop.ColorOne = Color.Black;
-            gpnlContainerBottomTop.ColorTwo = Color.DimGray;
-            gpnlContainerBottomTop.Dock = DockStyle.Top;
-            gpnlContainerBottomTop.GradientAngle = 90F;
-            gpnlContainerBottomTop.Location = new Point(0, 0);
-            gpnlContainerBottomTop.Margin = new Padding(4);
-            gpnlContainerBottomTop.Name = "gpnlContainerBottomTop";
-            gpnlContainerBottomTop.OpacityColourOne = 255;
-            gpnlContainerBottomTop.OpacityColourTwo = 255;
-            gpnlContainerBottomTop.Size = new Size(472, 21);
-            gpnlContainerBottomTop.TabIndex = 1;
             // 
             // pnlNavContainer
             // 
@@ -143,7 +78,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNavContainer.Controls.Add(pnlNav);
             pnlNavContainer.Controls.Add(btnSettings);
             pnlNavContainer.Controls.Add(btnInfo);
-            pnlNavContainer.Controls.Add(btnDataSummary);
+            pnlNavContainer.Controls.Add(btnChangelog);
             pnlNavContainer.Controls.Add(btnStudentData);
             pnlNavContainer.Controls.Add(btnDashboard);
             pnlNavContainer.Controls.Add(pnlTabTitleContainer);
@@ -155,7 +90,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNavContainer.OpacityColourOne = 255;
             pnlNavContainer.OpacityColourTwo = 255;
             pnlNavContainer.Size = new Size(217, 825);
-            pnlNavContainer.TabIndex = 11;
+            pnlNavContainer.TabIndex = 0;
             // 
             // pnlNav
             // 
@@ -210,27 +145,27 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             btnInfo.Click += btnInfo_Click;
             btnInfo.Leave += btnInfo_Leave;
             // 
-            // btnDataSummary
+            // btnChangelog
             // 
-            btnDataSummary.BackColor = Color.Transparent;
-            btnDataSummary.Dock = DockStyle.Top;
-            btnDataSummary.FlatAppearance.BorderSize = 0;
-            btnDataSummary.FlatStyle = FlatStyle.Flat;
-            btnDataSummary.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDataSummary.ForeColor = Color.Black;
-            btnDataSummary.Image = (Image)resources.GetObject("btnDataSummary.Image");
-            btnDataSummary.Location = new Point(0, 252);
-            btnDataSummary.Margin = new Padding(4);
-            btnDataSummary.Name = "btnDataSummary";
-            btnDataSummary.Padding = new Padding(24, 0, 0, 0);
-            btnDataSummary.Size = new Size(217, 74);
-            btnDataSummary.TabIndex = 17;
-            btnDataSummary.Text = "Data Summary";
-            btnDataSummary.TextAlign = ContentAlignment.MiddleLeft;
-            btnDataSummary.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btnDataSummary.UseVisualStyleBackColor = false;
-            btnDataSummary.Click += btnDataSummary_Click;
-            btnDataSummary.Leave += btnDataSummary_Leave;
+            btnChangelog.BackColor = Color.Transparent;
+            btnChangelog.Dock = DockStyle.Top;
+            btnChangelog.FlatAppearance.BorderSize = 0;
+            btnChangelog.FlatStyle = FlatStyle.Flat;
+            btnChangelog.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChangelog.ForeColor = Color.Black;
+            btnChangelog.Image = (Image)resources.GetObject("btnChangelog.Image");
+            btnChangelog.Location = new Point(0, 252);
+            btnChangelog.Margin = new Padding(4);
+            btnChangelog.Name = "btnChangelog";
+            btnChangelog.Padding = new Padding(24, 0, 0, 0);
+            btnChangelog.Size = new Size(217, 74);
+            btnChangelog.TabIndex = 17;
+            btnChangelog.Text = "Changelog\r";
+            btnChangelog.TextAlign = ContentAlignment.MiddleLeft;
+            btnChangelog.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnChangelog.UseVisualStyleBackColor = false;
+            btnChangelog.Click += btnChangelog_Click;
+            btnChangelog.Leave += btnDataSummary_Leave;
             // 
             // btnStudentData
             // 
@@ -300,41 +235,40 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             lblTabTitle.TabIndex = 0;
             lblTabTitle.Text = "TabTitle";
             // 
-            // mainFormPnlContainer
+            // gpnlMainFormContainer
             // 
-            mainFormPnlContainer.ColorOne = Color.FromArgb(253, 243, 235);
-            mainFormPnlContainer.ColorTwo = Color.White;
-            mainFormPnlContainer.Controls.Add(cbtnCloseApp);
-            mainFormPnlContainer.Controls.Add(btnClearSearch);
-            mainFormPnlContainer.Dock = DockStyle.Fill;
-            mainFormPnlContainer.GradientAngle = 315F;
-            mainFormPnlContainer.Location = new Point(0, 0);
-            mainFormPnlContainer.Margin = new Padding(4);
-            mainFormPnlContainer.Name = "mainFormPnlContainer";
-            mainFormPnlContainer.OpacityColourOne = 255;
-            mainFormPnlContainer.OpacityColourTwo = 255;
-            mainFormPnlContainer.Size = new Size(1250, 825);
-            mainFormPnlContainer.TabIndex = 12;
-            mainFormPnlContainer.Visible = false;
+            gpnlMainFormContainer.ColorOne = Color.FromArgb(255, 192, 128);
+            gpnlMainFormContainer.ColorTwo = Color.FromArgb(255, 192, 192);
+            gpnlMainFormContainer.Controls.Add(cbtnCloseApp);
+            gpnlMainFormContainer.Controls.Add(btnClearSearch);
+            gpnlMainFormContainer.Controls.Add(pnlCalendarContainer);
+            gpnlMainFormContainer.Controls.Add(pnlContainerMiddle);
+            gpnlMainFormContainer.Dock = DockStyle.Fill;
+            gpnlMainFormContainer.GradientAngle = 315F;
+            gpnlMainFormContainer.Location = new Point(0, 0);
+            gpnlMainFormContainer.Margin = new Padding(4);
+            gpnlMainFormContainer.Name = "gpnlMainFormContainer";
+            gpnlMainFormContainer.OpacityColourOne = 100;
+            gpnlMainFormContainer.OpacityColourTwo = 50;
+            gpnlMainFormContainer.Size = new Size(1285, 825);
+            gpnlMainFormContainer.TabIndex = 0;
             // 
             // cbtnCloseApp
             // 
-            cbtnCloseApp.BackColor = Color.FromArgb(255, 128, 0);
-            cbtnCloseApp.BackgroundColor = Color.FromArgb(255, 128, 0);
+            cbtnCloseApp.BackColor = Color.FromArgb(255, 192, 192);
+            cbtnCloseApp.BackgroundColor = Color.FromArgb(255, 192, 192);
             cbtnCloseApp.BorderColor = Color.Black;
             cbtnCloseApp.BorderRadius = 10;
             cbtnCloseApp.BorderSize = 0;
-            cbtnCloseApp.FlatAppearance.BorderColor = Color.Black;
             cbtnCloseApp.FlatAppearance.BorderSize = 0;
-            cbtnCloseApp.FlatStyle = FlatStyle.Flat;
-            cbtnCloseApp.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbtnCloseApp.ForeColor = Color.White;
-            cbtnCloseApp.Location = new Point(1181, 11);
+            cbtnCloseApp.FlatStyle = FlatStyle.Popup;
+            cbtnCloseApp.ForeColor = Color.Black;
+            cbtnCloseApp.Image = (Image)resources.GetObject("cbtnCloseApp.Image");
+            cbtnCloseApp.Location = new Point(1210, -7);
             cbtnCloseApp.Name = "cbtnCloseApp";
-            cbtnCloseApp.Size = new Size(57, 50);
+            cbtnCloseApp.Size = new Size(75, 68);
             cbtnCloseApp.TabIndex = 9;
-            cbtnCloseApp.Text = "X";
-            cbtnCloseApp.TextColor = Color.White;
+            cbtnCloseApp.TextColor = Color.Black;
             cbtnCloseApp.UseVisualStyleBackColor = false;
             cbtnCloseApp.Click += cbtnCloseApp_Click;
             // 
@@ -352,76 +286,18 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             btnClearSearch.Text = "X";
             btnClearSearch.UseVisualStyleBackColor = false;
             // 
-            // gpnlContainerMiddleTop
+            // pnlCalendarContainer
             // 
-            gpnlContainerMiddleTop.ColorOne = Color.Black;
-            gpnlContainerMiddleTop.ColorTwo = Color.DimGray;
-            gpnlContainerMiddleTop.Dock = DockStyle.Top;
-            gpnlContainerMiddleTop.GradientAngle = 90F;
-            gpnlContainerMiddleTop.Location = new Point(0, 0);
-            gpnlContainerMiddleTop.Margin = new Padding(4);
-            gpnlContainerMiddleTop.Name = "gpnlContainerMiddleTop";
-            gpnlContainerMiddleTop.OpacityColourOne = 255;
-            gpnlContainerMiddleTop.OpacityColourTwo = 255;
-            gpnlContainerMiddleTop.Size = new Size(472, 19);
-            gpnlContainerMiddleTop.TabIndex = 1;
-            // 
-            // lblStatusTitle
-            // 
-            lblStatusTitle.Anchor = AnchorStyles.Bottom;
-            lblStatusTitle.AutoSize = true;
-            lblStatusTitle.BackColor = Color.Transparent;
-            lblStatusTitle.FlatStyle = FlatStyle.Flat;
-            lblStatusTitle.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatusTitle.ForeColor = Color.Black;
-            lblStatusTitle.Location = new Point(21, 13);
-            lblStatusTitle.Margin = new Padding(4, 0, 4, 0);
-            lblStatusTitle.Name = "lblStatusTitle";
-            lblStatusTitle.Size = new Size(64, 18);
-            lblStatusTitle.TabIndex = 0;
-            lblStatusTitle.Text = "Status";
-            // 
-            // rtxtStatusContent
-            // 
-            rtxtStatusContent.AcceptsTab = true;
-            rtxtStatusContent.BackColor = Color.White;
-            rtxtStatusContent.BorderStyle = BorderStyle.None;
-            rtxtStatusContent.Dock = DockStyle.Bottom;
-            rtxtStatusContent.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtxtStatusContent.ForeColor = Color.Black;
-            rtxtStatusContent.Location = new Point(0, 36);
-            rtxtStatusContent.Margin = new Padding(0);
-            rtxtStatusContent.MaxLength = 500;
-            rtxtStatusContent.Name = "rtxtStatusContent";
-            rtxtStatusContent.ReadOnly = true;
-            rtxtStatusContent.ScrollBars = RichTextBoxScrollBars.Vertical;
-            rtxtStatusContent.Size = new Size(472, 80);
-            rtxtStatusContent.TabIndex = 0;
-            rtxtStatusContent.Text = "heyheyhey Put in status content here";
-            rtxtStatusContent.TextChanged += rtxtStatusContent_TextChanged;
-            // 
-            // pnlContainerMiddle
-            // 
-            pnlContainerMiddle.BackColor = Color.White;
-            pnlContainerMiddle.BorderStyle = BorderStyle.FixedSingle;
-            pnlContainerMiddle.Controls.Add(rtxtStatusContent);
-            pnlContainerMiddle.Controls.Add(lblStatusTitle);
-            pnlContainerMiddle.Controls.Add(gpnlContainerMiddleTop);
-            pnlContainerMiddle.ForeColor = Color.FromArgb(50, 12, 27);
-            pnlContainerMiddle.Location = new Point(724, 450);
-            pnlContainerMiddle.Margin = new Padding(4);
-            pnlContainerMiddle.Name = "pnlContainerMiddle";
-            pnlContainerMiddle.Size = new Size(474, 118);
-            pnlContainerMiddle.TabIndex = 4;
-            // 
-            // mcCalendar_pnlCalendarContainer
-            // 
-            mcCalendar_pnlCalendarContainer.BackColor = Color.White;
-            mcCalendar_pnlCalendarContainer.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mcCalendar_pnlCalendarContainer.Location = new Point(97, 34);
-            mcCalendar_pnlCalendarContainer.Margin = new Padding(10);
-            mcCalendar_pnlCalendarContainer.Name = "mcCalendar_pnlCalendarContainer";
-            mcCalendar_pnlCalendarContainer.TabIndex = 0;
+            pnlCalendarContainer.BackColor = Color.White;
+            pnlCalendarContainer.BorderStyle = BorderStyle.FixedSingle;
+            pnlCalendarContainer.Controls.Add(gpnlCalenderContainerTop);
+            pnlCalendarContainer.Controls.Add(mcCalendar_pnlCalendarContainer);
+            pnlCalendarContainer.ForeColor = Color.FromArgb(50, 12, 27);
+            pnlCalendarContainer.Location = new Point(772, 105);
+            pnlCalendarContainer.Margin = new Padding(4);
+            pnlCalendarContainer.Name = "pnlCalendarContainer";
+            pnlCalendarContainer.Size = new Size(474, 361);
+            pnlCalendarContainer.TabIndex = 3;
             // 
             // gpnlCalenderContainerTop
             // 
@@ -437,18 +313,76 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             gpnlCalenderContainerTop.Size = new Size(472, 23);
             gpnlCalenderContainerTop.TabIndex = 1;
             // 
-            // pnlCalendarContainer
+            // mcCalendar_pnlCalendarContainer
             // 
-            pnlCalendarContainer.BackColor = Color.White;
-            pnlCalendarContainer.BorderStyle = BorderStyle.FixedSingle;
-            pnlCalendarContainer.Controls.Add(gpnlCalenderContainerTop);
-            pnlCalendarContainer.Controls.Add(mcCalendar_pnlCalendarContainer);
-            pnlCalendarContainer.ForeColor = Color.FromArgb(50, 12, 27);
-            pnlCalendarContainer.Location = new Point(724, 103);
-            pnlCalendarContainer.Margin = new Padding(4);
-            pnlCalendarContainer.Name = "pnlCalendarContainer";
-            pnlCalendarContainer.Size = new Size(474, 321);
-            pnlCalendarContainer.TabIndex = 3;
+            mcCalendar_pnlCalendarContainer.BackColor = Color.White;
+            mcCalendar_pnlCalendarContainer.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            mcCalendar_pnlCalendarContainer.Location = new Point(128, 56);
+            mcCalendar_pnlCalendarContainer.Margin = new Padding(10);
+            mcCalendar_pnlCalendarContainer.Name = "mcCalendar_pnlCalendarContainer";
+            mcCalendar_pnlCalendarContainer.TabIndex = 0;
+            // 
+            // pnlContainerMiddle
+            // 
+            pnlContainerMiddle.BackColor = Color.White;
+            pnlContainerMiddle.BorderStyle = BorderStyle.FixedSingle;
+            pnlContainerMiddle.Controls.Add(rtxtStatusContent);
+            pnlContainerMiddle.Controls.Add(lblStatusTitle);
+            pnlContainerMiddle.Controls.Add(gpnlContainerMiddleTop);
+            pnlContainerMiddle.ForeColor = Color.FromArgb(50, 12, 27);
+            pnlContainerMiddle.Location = new Point(773, 506);
+            pnlContainerMiddle.Margin = new Padding(4);
+            pnlContainerMiddle.Name = "pnlContainerMiddle";
+            pnlContainerMiddle.Size = new Size(474, 283);
+            pnlContainerMiddle.TabIndex = 4;
+            // 
+            // rtxtStatusContent
+            // 
+            rtxtStatusContent.AcceptsTab = true;
+            rtxtStatusContent.BackColor = Color.White;
+            rtxtStatusContent.BorderStyle = BorderStyle.None;
+            rtxtStatusContent.Dock = DockStyle.Bottom;
+            rtxtStatusContent.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rtxtStatusContent.ForeColor = Color.Black;
+            rtxtStatusContent.Location = new Point(0, 65);
+            rtxtStatusContent.Margin = new Padding(0);
+            rtxtStatusContent.MaxLength = 500;
+            rtxtStatusContent.Name = "rtxtStatusContent";
+            rtxtStatusContent.ReadOnly = true;
+            rtxtStatusContent.ScrollBars = RichTextBoxScrollBars.Vertical;
+            rtxtStatusContent.Size = new Size(472, 216);
+            rtxtStatusContent.TabIndex = 0;
+            rtxtStatusContent.Text = "";
+            rtxtStatusContent.TextChanged += rtxtStatusContent_TextChanged;
+            // 
+            // lblStatusTitle
+            // 
+            lblStatusTitle.Anchor = AnchorStyles.Bottom;
+            lblStatusTitle.AutoSize = true;
+            lblStatusTitle.BackColor = Color.Transparent;
+            lblStatusTitle.FlatStyle = FlatStyle.Flat;
+            lblStatusTitle.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatusTitle.ForeColor = Color.Black;
+            lblStatusTitle.Location = new Point(4, 33);
+            lblStatusTitle.Margin = new Padding(4, 0, 4, 0);
+            lblStatusTitle.Name = "lblStatusTitle";
+            lblStatusTitle.Size = new Size(151, 18);
+            lblStatusTitle.TabIndex = 0;
+            lblStatusTitle.Text = "Recent Changes";
+            // 
+            // gpnlContainerMiddleTop
+            // 
+            gpnlContainerMiddleTop.ColorOne = Color.Black;
+            gpnlContainerMiddleTop.ColorTwo = Color.DimGray;
+            gpnlContainerMiddleTop.Dock = DockStyle.Top;
+            gpnlContainerMiddleTop.GradientAngle = 90F;
+            gpnlContainerMiddleTop.Location = new Point(0, 0);
+            gpnlContainerMiddleTop.Margin = new Padding(4);
+            gpnlContainerMiddleTop.Name = "gpnlContainerMiddleTop";
+            gpnlContainerMiddleTop.OpacityColourOne = 255;
+            gpnlContainerMiddleTop.OpacityColourTwo = 255;
+            gpnlContainerMiddleTop.Size = new Size(472, 19);
+            gpnlContainerMiddleTop.TabIndex = 1;
             // 
             // pnlTableContainer
             // 
@@ -586,28 +520,23 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1250, 825);
+            ClientSize = new Size(1285, 825);
             Controls.Add(pnlNavContainer);
-            Controls.Add(pnlContainerBottom);
             Controls.Add(txtSearchBox);
-            Controls.Add(pnlContainerMiddle);
-            Controls.Add(pnlCalendarContainer);
             Controls.Add(pnlMainTableContainer);
-            Controls.Add(mainFormPnlContainer);
+            Controls.Add(gpnlMainFormContainer);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Load += MainForm_Load;
-            pnlContainerBottom.ResumeLayout(false);
-            pnlContainerBottom.PerformLayout();
             pnlNavContainer.ResumeLayout(false);
             pnlTabTitleContainer.ResumeLayout(false);
             pnlTabTitleContainer.PerformLayout();
-            mainFormPnlContainer.ResumeLayout(false);
+            gpnlMainFormContainer.ResumeLayout(false);
+            pnlCalendarContainer.ResumeLayout(false);
             pnlContainerMiddle.ResumeLayout(false);
             pnlContainerMiddle.PerformLayout();
-            pnlCalendarContainer.ResumeLayout(false);
             pnlTableContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvStudents_pnlMainTableContainer).EndInit();
             pnlMainTableContainer.ResumeLayout(false);
@@ -617,21 +546,17 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         #endregion
         public System.Windows.Forms.Button btnClearSearch;
-        public System.Windows.Forms.Panel pnlContainerBottom;
-        public System.Windows.Forms.RichTextBox rtxtStatusContextLower;
-        public System.Windows.Forms.Label lblStatusLower;
         private CustomGradientPanels pnlNavContainer;
         public System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Panel pnlNav;
      
-        public System.Windows.Forms.Button btnDataSummary;
+        public System.Windows.Forms.Button btnChangelog;
         public System.Windows.Forms.Button btnStudentData;
         public System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel pnlTabTitleContainer;
         public System.Windows.Forms.Label lblTabTitle;
-        public CustomGradientPanels mainFormPnlContainer;
+        public CustomGradientPanels gpnlMainFormContainer;
         public System.Windows.Forms.Button btnSettings;
-        public CustomGradientPanels gpnlContainerBottomTop;
         public CustomGradientPanels gpnlContainerMiddleTop;
         public Label lblStatusTitle;
         public RichTextBox rtxtStatusContent;

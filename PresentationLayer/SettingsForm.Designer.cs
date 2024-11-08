@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp_MainProjectFile.PresentationLayer.UserControls
 {
-    partial class UCSettings
+    partial class SettingsForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             cgpMainContainer = new CustomControls.CustomGradientPanels();
-            cbtnCloseApp = new CustomControls.CustomButtons();
-            panel1 = new Panel();
-            lblDarkLight = new Label();
-            customToggleButton1 = new CustomControls.CustomToggleButton();
+            cbtnCloseChildForm2 = new CustomControls.CustomButtons();
             panel2 = new Panel();
             lblFonts = new Label();
             ctbntFontToggle = new CustomControls.CustomToggleButton();
+            panel1 = new Panel();
+            lblDarkLight = new Label();
+            customToggleButton1 = new CustomControls.CustomToggleButton();
+            panel3 = new Panel();
             cgpMainContainer.SuspendLayout();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // cgpMainContainer
@@ -46,8 +48,8 @@
             cgpMainContainer.BackColor = Color.Transparent;
             cgpMainContainer.ColorOne = Color.FromArgb(255, 224, 192);
             cgpMainContainer.ColorTwo = Color.FromArgb(255, 192, 255);
+            cgpMainContainer.Controls.Add(cbtnCloseChildForm2);
             cgpMainContainer.Controls.Add(panel2);
-            cgpMainContainer.Controls.Add(cbtnCloseApp);
             cgpMainContainer.Controls.Add(panel1);
             cgpMainContainer.Dock = DockStyle.Fill;
             cgpMainContainer.ForeColor = SystemColors.ActiveBorder;
@@ -56,29 +58,68 @@
             cgpMainContainer.Name = "cgpMainContainer";
             cgpMainContainer.OpacityColourOne = 255;
             cgpMainContainer.OpacityColourTwo = 150;
-            cgpMainContainer.Size = new Size(1250, 825);
+            cgpMainContainer.Size = new Size(1285, 825);
             cgpMainContainer.TabIndex = 0;
             // 
-            // cbtnCloseApp
+            // cbtnCloseChildForm2
             // 
-            cbtnCloseApp.BackColor = Color.FromArgb(255, 128, 0);
-            cbtnCloseApp.BackgroundColor = Color.FromArgb(255, 128, 0);
-            cbtnCloseApp.BorderColor = Color.Black;
-            cbtnCloseApp.BorderRadius = 10;
-            cbtnCloseApp.BorderSize = 0;
-            cbtnCloseApp.FlatAppearance.BorderColor = Color.Black;
-            cbtnCloseApp.FlatAppearance.BorderSize = 0;
-            cbtnCloseApp.FlatStyle = FlatStyle.Flat;
-            cbtnCloseApp.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbtnCloseApp.ForeColor = Color.White;
-            cbtnCloseApp.Location = new Point(913, 125);
-            cbtnCloseApp.Name = "cbtnCloseApp";
-            cbtnCloseApp.Size = new Size(70, 56);
-            cbtnCloseApp.TabIndex = 1;
-            cbtnCloseApp.Text = "X";
-            cbtnCloseApp.TextColor = Color.White;
-            cbtnCloseApp.UseVisualStyleBackColor = false;
-            cbtnCloseApp.Click += cbtnCloseApp_Click;
+            cbtnCloseChildForm2.BackColor = Color.FromArgb(255, 192, 192);
+            cbtnCloseChildForm2.BackgroundColor = Color.FromArgb(255, 192, 192);
+            cbtnCloseChildForm2.BorderColor = Color.Black;
+            cbtnCloseChildForm2.BorderRadius = 20;
+            cbtnCloseChildForm2.BorderSize = 0;
+            cbtnCloseChildForm2.FlatAppearance.BorderColor = Color.Black;
+            cbtnCloseChildForm2.FlatAppearance.BorderSize = 0;
+            cbtnCloseChildForm2.FlatStyle = FlatStyle.Flat;
+            cbtnCloseChildForm2.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbtnCloseChildForm2.ForeColor = Color.White;
+            cbtnCloseChildForm2.Image = (Image)resources.GetObject("cbtnCloseChildForm2.Image");
+            cbtnCloseChildForm2.Location = new Point(1166, 12);
+            cbtnCloseChildForm2.Name = "cbtnCloseChildForm2";
+            cbtnCloseChildForm2.Size = new Size(89, 76);
+            cbtnCloseChildForm2.TabIndex = 11;
+            cbtnCloseChildForm2.TextColor = Color.White;
+            cbtnCloseChildForm2.UseVisualStyleBackColor = false;
+            cbtnCloseChildForm2.Click += cbtnCloseChildForm2_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(lblFonts);
+            panel2.Controls.Add(ctbntFontToggle);
+            panel2.Location = new Point(602, 427);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(261, 101);
+            panel2.TabIndex = 2;
+            // 
+            // lblFonts
+            // 
+            lblFonts.AutoSize = true;
+            lblFonts.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFonts.ForeColor = Color.Black;
+            lblFonts.Location = new Point(99, 0);
+            lblFonts.Name = "lblFonts";
+            lblFonts.Size = new Size(113, 87);
+            lblFonts.TabIndex = 1;
+            lblFonts.Text = "Dyslexia\r\nfriendly\r\nfonts";
+            // 
+            // ctbntFontToggle
+            // 
+            ctbntFontToggle.AutoSize = true;
+            ctbntFontToggle.BackColor = Color.Transparent;
+            ctbntFontToggle.ForeColor = SystemColors.WindowText;
+            ctbntFontToggle.Location = new Point(13, 25);
+            ctbntFontToggle.MinimumSize = new Size(80, 40);
+            ctbntFontToggle.Name = "ctbntFontToggle";
+            ctbntFontToggle.OffBackColour = Color.SaddleBrown;
+            ctbntFontToggle.OffToggleColour = Color.Peru;
+            ctbntFontToggle.OnBackColour = Color.DarkGreen;
+            ctbntFontToggle.OnToggleColour = Color.DarkSeaGreen;
+            ctbntFontToggle.Size = new Size(80, 40);
+            ctbntFontToggle.SolidStyle = false;
+            ctbntFontToggle.TabIndex = 0;
+            ctbntFontToggle.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -86,7 +127,7 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(lblDarkLight);
             panel1.Controls.Add(customToggleButton1);
-            panel1.Location = new Point(410, 337);
+            panel1.Location = new Point(602, 140);
             panel1.Name = "panel1";
             panel1.Size = new Size(261, 101);
             panel1.TabIndex = 0;
@@ -118,55 +159,29 @@
             customToggleButton1.UseVisualStyleBackColor = true;
             customToggleButton1.CheckedChanged += customToggleButton1_CheckedChanged;
             // 
-            // panel2
+            // panel3
             // 
-            panel2.BackColor = Color.White;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblFonts);
-            panel2.Controls.Add(ctbntFontToggle);
-            panel2.Location = new Point(410, 467);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(261, 101);
-            panel2.TabIndex = 2;
+            panel3.Dock = DockStyle.Left;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(217, 825);
+            panel3.TabIndex = 36;
             // 
-            // lblFonts
-            // 
-            lblFonts.AutoSize = true;
-            lblFonts.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFonts.ForeColor = Color.Black;
-            lblFonts.Location = new Point(99, 9);
-            lblFonts.Name = "lblFonts";
-            lblFonts.Size = new Size(113, 87);
-            lblFonts.TabIndex = 1;
-            lblFonts.Text = "Dyslexia\r\nfriendly\r\nfonts";
-            // 
-            // ctbntFontToggle
-            // 
-            ctbntFontToggle.AutoSize = true;
-            ctbntFontToggle.ForeColor = SystemColors.WindowText;
-            ctbntFontToggle.Location = new Point(13, 25);
-            ctbntFontToggle.MinimumSize = new Size(80, 40);
-            ctbntFontToggle.Name = "ctbntFontToggle";
-            ctbntFontToggle.OffBackColour = Color.FromArgb(223, 105, 13);
-            ctbntFontToggle.OffToggleColour = Color.FromArgb(253, 243, 235);
-            ctbntFontToggle.OnBackColour = Color.Navy;
-            ctbntFontToggle.OnToggleColour = Color.FromArgb(192, 192, 255);
-            ctbntFontToggle.Size = new Size(80, 40);
-            ctbntFontToggle.TabIndex = 0;
-            ctbntFontToggle.UseVisualStyleBackColor = true;
-            // 
-            // UCSettings
+            // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1285, 825);
+            ControlBox = false;
+            Controls.Add(panel3);
             Controls.Add(cgpMainContainer);
-            Name = "UCSettings";
-            Size = new Size(1250, 825);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "SettingsForm";
             cgpMainContainer.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -176,9 +191,10 @@
         private Panel panel1;
         private CustomControls.CustomToggleButton customToggleButton1;
         private Label lblDarkLight;
-        private CustomControls.CustomButtons cbtnCloseApp;
         private Panel panel2;
         private Label lblFonts;
         private CustomControls.CustomToggleButton ctbntFontToggle;
+        private CustomControls.CustomButtons cbtnCloseChildForm2;
+        private Panel panel3;
     }
 }
