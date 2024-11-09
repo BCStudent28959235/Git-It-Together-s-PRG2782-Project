@@ -14,6 +14,7 @@ using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
 
 using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 
@@ -100,6 +101,21 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             src.DataSource = studentTable;
 
             dgvStudents_pnlMainTableContainer.DataSource = src;
+
+            //Display latest changes
+            lsvRecentChanges.View = View.Details;
+            lsvRecentChanges.Columns.Add("Change Log", -2, HorizontalAlignment.Left); // -2 makes it auto-size to content
+
+            // Populate ListView with the last 3 entries from the change log
+            List<string> changeLog = new List<string>();
+            Read r = new Read();
+            changeLog = r.changeLogRead();
+
+            foreach (string log in changeLog)
+            {
+                ListViewItem row = new ListViewItem(log); // Initialize ListViewItem with the log text
+                lsvRecentChanges.Items.Add(row); // Add the item to the ListView
+            }
         }
         private void populateStudents()
         {
@@ -120,11 +136,13 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnPrevious_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
+            src.MovePrevious();
             //Implement  logic
         }
 
         private void btnNext_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
+            src.MoveNext();
             //Implement next logic
 
         }

@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using WinFormsApp_MainProjectFile.LogicLayer;
+using System.ComponentModel.Design;
+using System.Web;
 
 
 namespace WinFormsApp_MainProjectFile.FileHandling
@@ -49,6 +51,29 @@ namespace WinFormsApp_MainProjectFile.FileHandling
                 }
                 return students;
             }
+        }
+
+        public List<string> changeLogRead()
+        {
+            List<string> changeLog = new List<string>();
+
+            string file = @"C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\Debug\net8.0-windows\ChangeLog.txt";
+            FileStream fs = new FileStream(file, FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+
+            string line;
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                changeLog.Add(line);
+            }
+
+            changeLog.RemoveRange(0, changeLog.Count - 3);
+
+            return changeLog;
+
+            sr.Close();
+            fs.Close();
         }
     }
 }

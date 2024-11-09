@@ -66,8 +66,6 @@ C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\D
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\Debug\net8.0-windows\WinFormsApp_MainProjectFile.pdb
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.MainForm.resources
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.TasksForm.resources
-C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.TesterForm.resources
-C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.UserControls.UCSettings.resources
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.Properties.Resources.resources
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.csproj.GenerateResource.cache
 C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.GeneratedMSBuildEditorConfig.editorconfig
@@ -102,3 +100,6 @@ C:\Users\Katryn\Desktop\Project\HoofRepos\layout\LayoutRepos08\Git-It-Together-s
 C:\Users\Katryn\Desktop\Project\HoofRepos\layout\LayoutRepos08\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.ChangelogForm.resources
 C:\Users\Katryn\Desktop\Project\HoofRepos\layout\LayoutRepos08\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.InfoForm.resources
 C:\Users\Katryn\Desktop\Project\HoofRepos\layout\LayoutRepos08\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.UserControls.SettingsForm.resources
+C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.ChangelogForm.resources
+C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.InfoForm.resources
+C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\obj\Debug\net8.0-windows\WinFormsApp_MainProjectFile.PresentationLayer.UserControls.SettingsForm.resources
