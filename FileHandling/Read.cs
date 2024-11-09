@@ -68,12 +68,33 @@ namespace WinFormsApp_MainProjectFile.FileHandling
                 changeLog.Add(line);
             }
 
+            sr.Close();
+            fs.Close();
+
             changeLog.RemoveRange(0, changeLog.Count - 3);
 
-            return changeLog;
+            return changeLog;   
+        }
+
+        public List<string> changeLogReadAll()
+        {
+            List<string> changeLog = new List<string>();
+
+            string file = Application.StartupPath + @"\\ChangeLog.txt";
+            FileStream fs = new FileStream(file, FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+
+            string line;
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                changeLog.Add(line);
+            }
 
             sr.Close();
             fs.Close();
+
+            return changeLog;
         }
     }
 }

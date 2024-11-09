@@ -119,7 +119,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
             //Display latest changes
             lsvRecentChanges.View = View.Details;
-            lsvRecentChanges.Columns.Add("Change Log", -2, HorizontalAlignment.Left); // -2 makes it auto-size to content
+            lsvRecentChanges.Columns.Add("Change Log", -2, HorizontalAlignment.Left);
 
             // Populate ListView with the last 3 entries from the change log
             List<string> changeLog = new List<string>();

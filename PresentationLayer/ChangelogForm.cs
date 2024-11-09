@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
 
 
@@ -61,7 +62,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void TesterForm_Load(object sender, EventArgs e)
         {
+            //Display latest changes
+            lsvChangeLog.View = View.Details;
+            lsvChangeLog.Columns.Add("Change Log", -2, HorizontalAlignment.Left);
 
+            // Populate ListView with the last 3 entries from the change log
+            List<string> changeLog = new List<string>();
+            Read r = new Read();
+            changeLog = r.changeLogReadAll();
+
+            foreach (string log in changeLog)
+            {
+                ListViewItem row = new ListViewItem(log); // Initialize ListViewItem with the log text
+                lsvChangeLog.Items.Add(row); // Add the item to the ListView
+            }
         }
 
 

@@ -34,7 +34,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             cgpMainInfoContainer = new CustomQuadColourGradientPanels();
             cbtnTaskFormOpen = new CustomButtons();
             pnlHoldsChangelog = new Panel();
-            rtxtDisplayChangelog = new RichTextBox();
+            lsvChangeLog = new ListView();
             cbtnCloseChildForm1 = new CustomButtons();
             panel1 = new Panel();
             cgpMainInfoContainer.SuspendLayout();
@@ -56,14 +56,14 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             cgpMainInfoContainer.GradientCenterY = 0.5F;
             cgpMainInfoContainer.GradientResolution = 1000;
             cgpMainInfoContainer.Location = new Point(0, 0);
-            cgpMainInfoContainer.Margin = new Padding(4, 3, 4, 3);
+            cgpMainInfoContainer.Margin = new Padding(6, 5, 6, 5);
             cgpMainInfoContainer.Name = "cgpMainInfoContainer";
             cgpMainInfoContainer.Opacity = 255;
             cgpMainInfoContainer.OpacityColourFour = 255;
             cgpMainInfoContainer.OpacityColourOne = 255;
             cgpMainInfoContainer.OpacityColourThree = 255;
             cgpMainInfoContainer.OpacityColourTwo = 255;
-            cgpMainInfoContainer.Size = new Size(1285, 825);
+            cgpMainInfoContainer.Size = new Size(1836, 1375);
             cgpMainInfoContainer.TabIndex = 0;
             cgpMainInfoContainer.UseRadialGradient = true;
             // 
@@ -80,9 +80,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             cbtnTaskFormOpen.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbtnTaskFormOpen.ForeColor = Color.White;
             cbtnTaskFormOpen.Image = (Image)resources.GetObject("cbtnTaskFormOpen.Image");
-            cbtnTaskFormOpen.Location = new Point(1184, 150);
+            cbtnTaskFormOpen.Location = new Point(1691, 250);
+            cbtnTaskFormOpen.Margin = new Padding(4, 5, 4, 5);
             cbtnTaskFormOpen.Name = "cbtnTaskFormOpen";
-            cbtnTaskFormOpen.Size = new Size(89, 76);
+            cbtnTaskFormOpen.Size = new Size(127, 127);
             cbtnTaskFormOpen.TabIndex = 12;
             cbtnTaskFormOpen.TextColor = Color.White;
             cbtnTaskFormOpen.UseVisualStyleBackColor = false;
@@ -91,23 +92,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             // pnlHoldsChangelog
             // 
             pnlHoldsChangelog.BackColor = Color.FromArgb(245, 235, 224);
-            pnlHoldsChangelog.Controls.Add(rtxtDisplayChangelog);
-            pnlHoldsChangelog.Location = new Point(460, 42);
+            pnlHoldsChangelog.Controls.Add(lsvChangeLog);
+            pnlHoldsChangelog.Location = new Point(657, 70);
+            pnlHoldsChangelog.Margin = new Padding(4, 5, 4, 5);
             pnlHoldsChangelog.Name = "pnlHoldsChangelog";
-            pnlHoldsChangelog.Size = new Size(507, 720);
+            pnlHoldsChangelog.Size = new Size(724, 1200);
             pnlHoldsChangelog.TabIndex = 11;
             // 
-            // rtxtDisplayChangelog
+            // lsvChangeLog
             // 
-            rtxtDisplayChangelog.BackColor = Color.White;
-            rtxtDisplayChangelog.BorderStyle = BorderStyle.None;
-            rtxtDisplayChangelog.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtxtDisplayChangelog.Location = new Point(26, 23);
-            rtxtDisplayChangelog.Name = "rtxtDisplayChangelog";
-            rtxtDisplayChangelog.ReadOnly = true;
-            rtxtDisplayChangelog.Size = new Size(460, 648);
-            rtxtDisplayChangelog.TabIndex = 0;
-            rtxtDisplayChangelog.Text = "";
+            lsvChangeLog.Location = new Point(3, 3);
+            lsvChangeLog.Name = "lsvChangeLog";
+            lsvChangeLog.Size = new Size(718, 1197);
+            lsvChangeLog.TabIndex = 0;
+            lsvChangeLog.UseCompatibleStateImageBehavior = false;
             // 
             // cbtnCloseChildForm1
             // 
@@ -122,9 +120,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             cbtnCloseChildForm1.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbtnCloseChildForm1.ForeColor = Color.White;
             cbtnCloseChildForm1.Image = (Image)resources.GetObject("cbtnCloseChildForm1.Image");
-            cbtnCloseChildForm1.Location = new Point(1184, 12);
+            cbtnCloseChildForm1.Location = new Point(1691, 20);
+            cbtnCloseChildForm1.Margin = new Padding(4, 5, 4, 5);
             cbtnCloseChildForm1.Name = "cbtnCloseChildForm1";
-            cbtnCloseChildForm1.Size = new Size(89, 76);
+            cbtnCloseChildForm1.Size = new Size(127, 127);
             cbtnCloseChildForm1.TabIndex = 10;
             cbtnCloseChildForm1.TextColor = Color.White;
             cbtnCloseChildForm1.UseVisualStyleBackColor = false;
@@ -134,20 +133,21 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             // 
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(217, 825);
+            panel1.Size = new Size(310, 1375);
             panel1.TabIndex = 1;
             // 
             // ChangelogForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1285, 825);
+            ClientSize = new Size(1836, 1375);
             ControlBox = false;
             Controls.Add(panel1);
             Controls.Add(cgpMainInfoContainer);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(6, 5, 6, 5);
             Name = "ChangelogForm";
             Text = "TesterForm";
             Load += TesterForm_Load;
@@ -158,10 +158,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         #endregion
         private Panel panel1;
-        private RichTextBox rtxtDisplayChangelog;
         public CustomQuadColourGradientPanels cgpMainInfoContainer;
         public CustomButtons cbtnCloseChildForm1;
         public Panel pnlHoldsChangelog;
         public CustomButtons cbtnTaskFormOpen;
+        private ListView lsvChangeLog;
     }
 }
