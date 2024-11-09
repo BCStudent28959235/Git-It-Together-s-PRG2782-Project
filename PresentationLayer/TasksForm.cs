@@ -40,7 +40,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         public ImageList imageList = new ImageList();
 
 
-       
+        private Settings settings;
         public event Action OnFormClosed;
 
         // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
@@ -62,6 +62,12 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         public TasksForm()
         {
             InitializeComponent();
+            settings = new Settings();
+
+
+            settings.readIni();
+
+
             iconsPath = Application.StartupPath + @"PersonalResources\icons";
             Image plusIcon = Image.FromFile(iconsPath + @"\Plus_L.png");
             Image minusIcon = Image.FromFile(iconsPath + @"\Minus_L.png");
@@ -92,8 +98,19 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             imageList.Images.Add(return_L);
             imageList.Images.Add(return_D);
 
-
-            cbtnCloseChildFormTasks.Image = imageList.Images[3];
+            if (settings.theme.ToLower() == "dark")
+            {
+                // Apply Dark Theme
+                ThemeHandler.ApplyDarkMode(this);
+                cbtnCloseChildFormTasks.Image = imageList.Images[3]; // Dark icon
+            }
+            else
+            {
+                // Apply Light Theme
+                ThemeHandler.ApplyLightMode(this);
+                cbtnCloseChildFormTasks.Image = imageList.Images[2]; // Light icon
+            }
+           
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

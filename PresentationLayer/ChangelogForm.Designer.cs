@@ -31,41 +31,83 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangelogForm));
-            customQuadColourGradientPanels1 = new CustomQuadColourGradientPanels();
+            cgpMainInfoContainer = new CustomQuadColourGradientPanels();
+            cbtnTaskFormOpen = new CustomButtons();
+            pnlHoldsChangelog = new Panel();
+            rtxtDisplayChangelog = new RichTextBox();
             cbtnCloseChildForm1 = new CustomButtons();
             panel1 = new Panel();
-            panel2 = new Panel();
-            cbtnTaskFormOpen = new CustomButtons();
-            rtxtDisplayChangelog = new RichTextBox();
-            customQuadColourGradientPanels1.SuspendLayout();
-            panel2.SuspendLayout();
+            cgpMainInfoContainer.SuspendLayout();
+            pnlHoldsChangelog.SuspendLayout();
             SuspendLayout();
             // 
-            // customQuadColourGradientPanels1
+            // cgpMainInfoContainer
             // 
-            customQuadColourGradientPanels1.ColorFour = Color.FromArgb(255, 224, 192);
-            customQuadColourGradientPanels1.ColorOne = Color.FromArgb(255, 224, 192);
-            customQuadColourGradientPanels1.ColorThree = Color.FromArgb(255, 224, 192);
-            customQuadColourGradientPanels1.ColorTwo = Color.FromArgb(255, 192, 192);
-            customQuadColourGradientPanels1.Controls.Add(cbtnTaskFormOpen);
-            customQuadColourGradientPanels1.Controls.Add(panel2);
-            customQuadColourGradientPanels1.Controls.Add(cbtnCloseChildForm1);
-            customQuadColourGradientPanels1.Dock = DockStyle.Fill;
-            customQuadColourGradientPanels1.GradientAngle = 90F;
-            customQuadColourGradientPanels1.GradientCenterX = 0.1F;
-            customQuadColourGradientPanels1.GradientCenterY = 0.9F;
-            customQuadColourGradientPanels1.GradientResolution = 1000;
-            customQuadColourGradientPanels1.Location = new Point(0, 0);
-            customQuadColourGradientPanels1.Margin = new Padding(4, 3, 4, 3);
-            customQuadColourGradientPanels1.Name = "customQuadColourGradientPanels1";
-            customQuadColourGradientPanels1.Opacity = 255;
-            customQuadColourGradientPanels1.OpacityColourFour = 100;
-            customQuadColourGradientPanels1.OpacityColourOne = 255;
-            customQuadColourGradientPanels1.OpacityColourThree = 50;
-            customQuadColourGradientPanels1.OpacityColourTwo = 20;
-            customQuadColourGradientPanels1.Size = new Size(1285, 825);
-            customQuadColourGradientPanels1.TabIndex = 0;
-            customQuadColourGradientPanels1.UseRadialGradient = true;
+            cgpMainInfoContainer.ColorFour = Color.FromArgb(254, 242, 232);
+            cgpMainInfoContainer.ColorOne = Color.White;
+            cgpMainInfoContainer.ColorThree = Color.White;
+            cgpMainInfoContainer.ColorTwo = Color.White;
+            cgpMainInfoContainer.Controls.Add(cbtnTaskFormOpen);
+            cgpMainInfoContainer.Controls.Add(pnlHoldsChangelog);
+            cgpMainInfoContainer.Controls.Add(cbtnCloseChildForm1);
+            cgpMainInfoContainer.Dock = DockStyle.Fill;
+            cgpMainInfoContainer.GradientAngle = 0F;
+            cgpMainInfoContainer.GradientCenterX = 0.1F;
+            cgpMainInfoContainer.GradientCenterY = 0.5F;
+            cgpMainInfoContainer.GradientResolution = 1000;
+            cgpMainInfoContainer.Location = new Point(0, 0);
+            cgpMainInfoContainer.Margin = new Padding(4, 3, 4, 3);
+            cgpMainInfoContainer.Name = "cgpMainInfoContainer";
+            cgpMainInfoContainer.Opacity = 255;
+            cgpMainInfoContainer.OpacityColourFour = 255;
+            cgpMainInfoContainer.OpacityColourOne = 255;
+            cgpMainInfoContainer.OpacityColourThree = 255;
+            cgpMainInfoContainer.OpacityColourTwo = 255;
+            cgpMainInfoContainer.Size = new Size(1285, 825);
+            cgpMainInfoContainer.TabIndex = 0;
+            cgpMainInfoContainer.UseRadialGradient = true;
+            // 
+            // cbtnTaskFormOpen
+            // 
+            cbtnTaskFormOpen.BackColor = Color.FromArgb(255, 192, 192);
+            cbtnTaskFormOpen.BackgroundColor = Color.FromArgb(255, 192, 192);
+            cbtnTaskFormOpen.BorderColor = Color.Black;
+            cbtnTaskFormOpen.BorderRadius = 20;
+            cbtnTaskFormOpen.BorderSize = 0;
+            cbtnTaskFormOpen.FlatAppearance.BorderColor = Color.Black;
+            cbtnTaskFormOpen.FlatAppearance.BorderSize = 0;
+            cbtnTaskFormOpen.FlatStyle = FlatStyle.Flat;
+            cbtnTaskFormOpen.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbtnTaskFormOpen.ForeColor = Color.White;
+            cbtnTaskFormOpen.Image = (Image)resources.GetObject("cbtnTaskFormOpen.Image");
+            cbtnTaskFormOpen.Location = new Point(1184, 150);
+            cbtnTaskFormOpen.Name = "cbtnTaskFormOpen";
+            cbtnTaskFormOpen.Size = new Size(89, 76);
+            cbtnTaskFormOpen.TabIndex = 12;
+            cbtnTaskFormOpen.TextColor = Color.White;
+            cbtnTaskFormOpen.UseVisualStyleBackColor = false;
+            cbtnTaskFormOpen.Click += cbtnTaskFormOpen_Click;
+            // 
+            // pnlHoldsChangelog
+            // 
+            pnlHoldsChangelog.BackColor = Color.FromArgb(245, 235, 224);
+            pnlHoldsChangelog.Controls.Add(rtxtDisplayChangelog);
+            pnlHoldsChangelog.Location = new Point(460, 42);
+            pnlHoldsChangelog.Name = "pnlHoldsChangelog";
+            pnlHoldsChangelog.Size = new Size(507, 720);
+            pnlHoldsChangelog.TabIndex = 11;
+            // 
+            // rtxtDisplayChangelog
+            // 
+            rtxtDisplayChangelog.BackColor = Color.White;
+            rtxtDisplayChangelog.BorderStyle = BorderStyle.None;
+            rtxtDisplayChangelog.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rtxtDisplayChangelog.Location = new Point(26, 23);
+            rtxtDisplayChangelog.Name = "rtxtDisplayChangelog";
+            rtxtDisplayChangelog.ReadOnly = true;
+            rtxtDisplayChangelog.Size = new Size(460, 648);
+            rtxtDisplayChangelog.TabIndex = 0;
+            rtxtDisplayChangelog.Text = "";
             // 
             // cbtnCloseChildForm1
             // 
@@ -96,47 +138,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             panel1.Size = new Size(217, 825);
             panel1.TabIndex = 1;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(128, 64, 0);
-            panel2.Controls.Add(rtxtDisplayChangelog);
-            panel2.Location = new Point(460, 42);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(507, 720);
-            panel2.TabIndex = 11;
-            // 
-            // cbtnTaskFormOpen
-            // 
-            cbtnTaskFormOpen.BackColor = Color.FromArgb(255, 192, 192);
-            cbtnTaskFormOpen.BackgroundColor = Color.FromArgb(255, 192, 192);
-            cbtnTaskFormOpen.BorderColor = Color.Black;
-            cbtnTaskFormOpen.BorderRadius = 20;
-            cbtnTaskFormOpen.BorderSize = 0;
-            cbtnTaskFormOpen.FlatAppearance.BorderColor = Color.Black;
-            cbtnTaskFormOpen.FlatAppearance.BorderSize = 0;
-            cbtnTaskFormOpen.FlatStyle = FlatStyle.Flat;
-            cbtnTaskFormOpen.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbtnTaskFormOpen.ForeColor = Color.White;
-            cbtnTaskFormOpen.Image = (Image)resources.GetObject("cbtnTaskFormOpen.Image");
-            cbtnTaskFormOpen.Location = new Point(1184, 150);
-            cbtnTaskFormOpen.Name = "cbtnTaskFormOpen";
-            cbtnTaskFormOpen.Size = new Size(89, 76);
-            cbtnTaskFormOpen.TabIndex = 12;
-            cbtnTaskFormOpen.TextColor = Color.White;
-            cbtnTaskFormOpen.UseVisualStyleBackColor = false;
-            cbtnTaskFormOpen.Click += cbtnTaskFormOpen_Click;
-            // 
-            // rtxtDisplayChangelog
-            // 
-            rtxtDisplayChangelog.BorderStyle = BorderStyle.None;
-            rtxtDisplayChangelog.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtxtDisplayChangelog.Location = new Point(26, 23);
-            rtxtDisplayChangelog.Name = "rtxtDisplayChangelog";
-            rtxtDisplayChangelog.ReadOnly = true;
-            rtxtDisplayChangelog.Size = new Size(460, 648);
-            rtxtDisplayChangelog.TabIndex = 0;
-            rtxtDisplayChangelog.Text = "";
-            // 
             // ChangelogForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -144,24 +145,23 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             ClientSize = new Size(1285, 825);
             ControlBox = false;
             Controls.Add(panel1);
-            Controls.Add(customQuadColourGradientPanels1);
+            Controls.Add(cgpMainInfoContainer);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "ChangelogForm";
             Text = "TesterForm";
             Load += TesterForm_Load;
-            customQuadColourGradientPanels1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            cgpMainInfoContainer.ResumeLayout(false);
+            pnlHoldsChangelog.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private CustomQuadColourGradientPanels customQuadColourGradientPanels1;
-        private CustomButtons cbtnCloseChildForm1;
         private Panel panel1;
-        private Panel panel2;
-        private CustomButtons cbtnTaskFormOpen;
         private RichTextBox rtxtDisplayChangelog;
+        public CustomQuadColourGradientPanels cgpMainInfoContainer;
+        public CustomButtons cbtnCloseChildForm1;
+        public Panel pnlHoldsChangelog;
+        public CustomButtons cbtnTaskFormOpen;
     }
 }

@@ -63,6 +63,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer.CustomControls
                         g.FillRectangle(pgb, 0, y, r.Width, GradientResolution);
                     }
                 }
+
             }
             return bmp;
         }

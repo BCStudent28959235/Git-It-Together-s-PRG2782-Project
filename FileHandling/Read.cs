@@ -57,7 +57,7 @@ namespace WinFormsApp_MainProjectFile.FileHandling
         {
             List<string> changeLog = new List<string>();
 
-            string file = @"C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\Debug\net8.0-windows\ChangeLog.txt";
+            string file =Application.StartupPath + @"\\ChangeLog.txt";
             FileStream fs = new FileStream(file, FileMode.Open);
             StreamReader sr = new StreamReader(fs);
 

@@ -78,7 +78,7 @@ namespace WinFormsApp_MainProjectFile.FileHandling
                 }
             }
 
-            string fileName = @"C:\Users\thian\OneDrive\Documents\GitHub\Git-It-Together-s-PRG2782-Project\bin\Debug\net8.0-windows\ChangeLog.txt";
+            string fileName ="ChangeLog.txt";
             FileStream myStream = new FileStream(fileName, FileMode.Append);
             StreamWriter myWriter = new StreamWriter(myStream);
 
@@ -93,7 +93,7 @@ namespace WinFormsApp_MainProjectFile.FileHandling
                     break;
 
                 case "Delete":
-                    myWriter.WriteLine($"{now} = Deleted student ID={id}, Name={name}");
+                    myWriter.WriteLine($"{now} = Deleted student ID={id}, Name={name}, Age={age}, Course={course}");
                     break;
             }
 

@@ -31,33 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             cgpMainContainer = new CustomControls.CustomGradientPanels();
             cbtnCloseChildForm2 = new CustomControls.CustomButtons();
-            panel2 = new Panel();
+            pnlFontToggle = new Panel();
             lblFonts = new Label();
             ctbntFontToggle = new CustomControls.CustomToggleButton();
-            panel1 = new Panel();
+            pnlThemeToggle = new Panel();
             lblDarkLight = new Label();
-            customToggleButton1 = new CustomControls.CustomToggleButton();
-            panel3 = new Panel();
+            ctbtnThemeToggle = new CustomControls.CustomToggleButton();
+            pnlSide1 = new Panel();
             cgpMainContainer.SuspendLayout();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlFontToggle.SuspendLayout();
+            pnlThemeToggle.SuspendLayout();
             SuspendLayout();
             // 
             // cgpMainContainer
             // 
             cgpMainContainer.BackColor = Color.Transparent;
-            cgpMainContainer.ColorOne = Color.FromArgb(255, 224, 192);
-            cgpMainContainer.ColorTwo = Color.FromArgb(255, 192, 255);
+            cgpMainContainer.ColorOne = Color.FromArgb(254, 242, 232);
+            cgpMainContainer.ColorTwo = Color.White;
             cgpMainContainer.Controls.Add(cbtnCloseChildForm2);
-            cgpMainContainer.Controls.Add(panel2);
-            cgpMainContainer.Controls.Add(panel1);
+            cgpMainContainer.Controls.Add(pnlFontToggle);
+            cgpMainContainer.Controls.Add(pnlThemeToggle);
             cgpMainContainer.Dock = DockStyle.Fill;
             cgpMainContainer.ForeColor = SystemColors.ActiveBorder;
             cgpMainContainer.GradientAngle = 315F;
             cgpMainContainer.Location = new Point(0, 0);
             cgpMainContainer.Name = "cgpMainContainer";
             cgpMainContainer.OpacityColourOne = 255;
-            cgpMainContainer.OpacityColourTwo = 150;
+            cgpMainContainer.OpacityColourTwo = 255;
             cgpMainContainer.Size = new Size(1285, 825);
             cgpMainContainer.TabIndex = 0;
             // 
@@ -82,16 +82,16 @@
             cbtnCloseChildForm2.UseVisualStyleBackColor = false;
             cbtnCloseChildForm2.Click += cbtnCloseChildForm2_Click;
             // 
-            // panel2
+            // pnlFontToggle
             // 
-            panel2.BackColor = Color.White;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblFonts);
-            panel2.Controls.Add(ctbntFontToggle);
-            panel2.Location = new Point(602, 427);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(261, 101);
-            panel2.TabIndex = 2;
+            pnlFontToggle.BackColor = Color.White;
+            pnlFontToggle.BorderStyle = BorderStyle.FixedSingle;
+            pnlFontToggle.Controls.Add(lblFonts);
+            pnlFontToggle.Controls.Add(ctbntFontToggle);
+            pnlFontToggle.Location = new Point(602, 427);
+            pnlFontToggle.Name = "pnlFontToggle";
+            pnlFontToggle.Size = new Size(261, 101);
+            pnlFontToggle.TabIndex = 2;
             // 
             // lblFonts
             // 
@@ -120,17 +120,17 @@
             ctbntFontToggle.SolidStyle = false;
             ctbntFontToggle.TabIndex = 0;
             ctbntFontToggle.UseVisualStyleBackColor = false;
+            ctbntFontToggle.CheckedChanged += ctbntFontToggle_CheckedChanged;
             // 
-            // panel1
+            // pnlThemeToggle
             // 
-            panel1.BackColor = Color.White;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(lblDarkLight);
-            panel1.Controls.Add(customToggleButton1);
-            panel1.Location = new Point(602, 140);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(261, 101);
-            panel1.TabIndex = 0;
+            pnlThemeToggle.BackColor = Color.White;
+            pnlThemeToggle.Controls.Add(lblDarkLight);
+            pnlThemeToggle.Controls.Add(ctbtnThemeToggle);
+            pnlThemeToggle.Location = new Point(602, 140);
+            pnlThemeToggle.Name = "pnlThemeToggle";
+            pnlThemeToggle.Size = new Size(261, 101);
+            pnlThemeToggle.TabIndex = 0;
             // 
             // lblDarkLight
             // 
@@ -143,29 +143,30 @@
             lblDarkLight.TabIndex = 1;
             lblDarkLight.Text = "Light Mode";
             // 
-            // customToggleButton1
+            // ctbtnThemeToggle
             // 
-            customToggleButton1.AutoSize = true;
-            customToggleButton1.ForeColor = SystemColors.WindowText;
-            customToggleButton1.Location = new Point(13, 25);
-            customToggleButton1.MinimumSize = new Size(80, 40);
-            customToggleButton1.Name = "customToggleButton1";
-            customToggleButton1.OffBackColour = Color.FromArgb(223, 105, 13);
-            customToggleButton1.OffToggleColour = Color.FromArgb(253, 243, 235);
-            customToggleButton1.OnBackColour = Color.Navy;
-            customToggleButton1.OnToggleColour = Color.FromArgb(192, 192, 255);
-            customToggleButton1.Size = new Size(80, 40);
-            customToggleButton1.TabIndex = 0;
-            customToggleButton1.UseVisualStyleBackColor = true;
-            customToggleButton1.CheckedChanged += customToggleButton1_CheckedChanged;
+            ctbtnThemeToggle.AutoSize = true;
+            ctbtnThemeToggle.ForeColor = SystemColors.WindowText;
+            ctbtnThemeToggle.Location = new Point(13, 25);
+            ctbtnThemeToggle.MinimumSize = new Size(80, 40);
+            ctbtnThemeToggle.Name = "ctbtnThemeToggle";
+            ctbtnThemeToggle.OffBackColour = Color.FromArgb(223, 105, 13);
+            ctbtnThemeToggle.OffToggleColour = Color.FromArgb(253, 243, 235);
+            ctbtnThemeToggle.OnBackColour = Color.Navy;
+            ctbtnThemeToggle.OnToggleColour = Color.FromArgb(192, 192, 255);
+            ctbtnThemeToggle.Size = new Size(80, 40);
+            ctbtnThemeToggle.TabIndex = 0;
+            ctbtnThemeToggle.UseVisualStyleBackColor = true;
+            ctbtnThemeToggle.CheckedChanged += ctbtnThemeToggle_CheckedChanged;
             // 
-            // panel3
+            // pnlSide1
             // 
-            panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(217, 825);
-            panel3.TabIndex = 36;
+            pnlSide1.BackColor = Color.Transparent;
+            pnlSide1.Dock = DockStyle.Left;
+            pnlSide1.Location = new Point(0, 0);
+            pnlSide1.Name = "pnlSide1";
+            pnlSide1.Size = new Size(217, 825);
+            pnlSide1.TabIndex = 36;
             // 
             // SettingsForm
             // 
@@ -173,28 +174,28 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1285, 825);
             ControlBox = false;
-            Controls.Add(panel3);
+            Controls.Add(pnlSide1);
             Controls.Add(cgpMainContainer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SettingsForm";
             cgpMainContainer.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlFontToggle.ResumeLayout(false);
+            pnlFontToggle.PerformLayout();
+            pnlThemeToggle.ResumeLayout(false);
+            pnlThemeToggle.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private CustomControls.CustomGradientPanels cgpMainContainer;
-        private Panel panel1;
-        private CustomControls.CustomToggleButton customToggleButton1;
-        private Label lblDarkLight;
-        private Panel panel2;
-        private Label lblFonts;
+        private CustomControls.CustomToggleButton ctbtnThemeToggle;
         private CustomControls.CustomToggleButton ctbntFontToggle;
-        private CustomControls.CustomButtons cbtnCloseChildForm2;
-        private Panel panel3;
+        private Panel pnlSide1;
+        public Panel pnlThemeToggle;
+        public Panel pnlFontToggle;
+        public CustomControls.CustomButtons cbtnCloseChildForm2;
+        public Label lblDarkLight;
+        public Label lblFonts;
     }
 }

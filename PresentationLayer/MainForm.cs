@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
-
+using WinFormsApp_MainProjectFile.PresentationLayer.CustomControls;
 using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -27,7 +27,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
     public partial class MainForm : Form
     {
         public SettingsForm ucSettings = new SettingsForm();
-        public Panel childFormPanel = new Panel();
+        public CustomGradientPanels childFormPanel = new CustomGradientPanels();
         private ShowChildForm childFormDisplayer;
         // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -40,12 +40,16 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                  int nHeightEllipse
              );
 
-
+        private Settings settings;
 
         public MainForm()
         {
             InitializeComponent();
 
+            settings = new Settings();
+
+
+            settings.readIni();
 
 
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -66,14 +70,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             childFormPanel.Size = new Size(1285, 825);
             childFormPanel.BringToFront();
             childFormPanel.Visible = false;
-            childFormPanel.BackColor = Color.Black;
+            childFormPanel.BackColor = Color.Transparent;
             pnlNavContainer.BringToFront();
 
 
             childFormDisplayer = new ShowChildForm(childFormPanel);
+            settings.readIni();
 
-
-
+            if (settings.theme.ToLower() == "dark")
+            {
+                // Apply Dark Theme
+                ThemeHandler.ApplyDarkMode(this);
+               
+            }
+            else
+            {
+                // Apply Light Theme
+                ThemeHandler.ApplyLightMode(this);
+             
+            }
 
         }
 
@@ -149,6 +164,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            settings.readIni();
+
+            if (settings.theme.ToLower() == "dark")
+            {
+                // Apply Dark Theme
+                ThemeHandler.ApplyDarkMode(this);
+
+            }
+            else
+            {
+                // Apply Light Theme
+                ThemeHandler.ApplyLightMode(this);
+
+            }
 
             lblTabTitle.Text = "Dashboard";
 
@@ -165,30 +194,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnStudentData_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-            lblTabTitle.Text = "Student Data";
+              lblTabTitle.Text = "Student Data";
 
             pnlNav.Height = btnStudentData.Height;
             pnlNav.Top = btnStudentData.Top;
             pnlNav.Left = btnStudentData.Left;
             btnStudentData.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
             btnDashboard.BackColor = Color.Transparent; //add to theme handler
-
+                                                        // Show the child form in the panel
             childFormPanel.Visible = true;
+            TasksForm testerForm = new TasksForm();
+            testerForm.OnFormClosed += TesterForm_OnFormClosed;
+            childFormDisplayer.DisplayForm(testerForm);
 
-            TasksForm childForm = new TasksForm();
-            childForm.OnFormClosed += TesterForm_OnFormClosed;
-            childFormDisplayer.DisplayForm(childForm);
-            TasksForm tasksForm = new TasksForm();
-            tasksForm.Dock = DockStyle.Fill;
-            tasksForm.TopLevel = false;
-            childFormPanel.Controls.Clear();
-            childFormPanel.Controls.Add(tasksForm);
-            tasksForm.Show();
+
 
 
         }
@@ -211,6 +230,16 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnChangelog_Click(object sender, EventArgs e)
         {
+            btnDashboard.BackColor = Color.FromArgb(240, 210, 144);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+
+            // Show the child form in the panel
+            childFormPanel.Visible = true;
+            ChangelogForm testerForm = new ChangelogForm();
+            testerForm.OnFormClosed += TesterForm_OnFormClosed;
+            childFormDisplayer.DisplayForm(testerForm);
 
         }
         private void TesterForm_OnFormClosed()
@@ -272,26 +301,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            //when clicking on another tab button the colour changes back to normal
-
-            //add in check to make sure its one of the buttons on the panel first
-            btnDashboard.BackColor = Color.Transparent; //add to theme handler
+            
+            btnDashboard.BackColor = Color.Transparent; 
         }
 
         private void btnStudentData_Leave(object sender, EventArgs e)
         {
-            //when clicking on another tab button the colour changes back to normal
+            
 
-            //add in check to make sure its one of the buttons on the panel first
-
-            btnStudentData.BackColor = Color.Transparent; //add to theme handler
+            btnStudentData.BackColor = Color.Transparent; 
         }
 
         private void btnDataSummary_Leave(object sender, EventArgs e)
         {
-            //when clicking on another tab button the colour changes back to normal
-
-            //add in check to make sure its one of the buttons on the panel first
+           
 
             btnChangelog.BackColor = Color.Transparent; //add to theme handler
         }
@@ -320,6 +343,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         {
             this.Close();
         }
-
+     
     }
 }

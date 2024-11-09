@@ -33,7 +33,8 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksForm));
             btnCloseTasksForm = new Button();
             pnlMainPanel = new Panel();
-            pnlTasksTableContainer = new Panel();
+            pnlSide3 = new Panel();
+            pnlTasksTableContainer = new CustomControls.CustomQuadColourGradientPanels();
             cbtnCloseChildFormTasks = new CustomControls.CustomButtons();
             pnlSliderHolder1 = new Panel();
             cqpSlidingPanel1 = new CustomControls.CustomQuadColourGradientPanels();
@@ -73,7 +74,6 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnSearch = new Button();
             tmerSlidePanelOpen = new System.Windows.Forms.Timer(components);
             tmerSlidePanelOpen2 = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
             pnlMainPanel.SuspendLayout();
             pnlTasksTableContainer.SuspendLayout();
             pnlSliderHolder1.SuspendLayout();
@@ -104,7 +104,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // pnlMainPanel
             // 
-            pnlMainPanel.Controls.Add(panel1);
+            pnlMainPanel.Controls.Add(pnlSide3);
             pnlMainPanel.Controls.Add(pnlTasksTableContainer);
             pnlMainPanel.Dock = DockStyle.Fill;
             pnlMainPanel.Location = new Point(0, 0);
@@ -113,9 +113,22 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlMainPanel.Size = new Size(1285, 825);
             pnlMainPanel.TabIndex = 25;
             // 
+            // pnlSide3
+            // 
+            pnlSide3.BackColor = Color.Transparent;
+            pnlSide3.Dock = DockStyle.Left;
+            pnlSide3.Location = new Point(0, 0);
+            pnlSide3.Name = "pnlSide3";
+            pnlSide3.Size = new Size(217, 825);
+            pnlSide3.TabIndex = 35;
+            // 
             // pnlTasksTableContainer
             // 
             pnlTasksTableContainer.BackColor = Color.FromArgb(253, 243, 235);
+            pnlTasksTableContainer.ColorFour = Color.FromArgb(254, 242, 232);
+            pnlTasksTableContainer.ColorOne = Color.FromArgb(254, 242, 232);
+            pnlTasksTableContainer.ColorThree = Color.White;
+            pnlTasksTableContainer.ColorTwo = Color.White;
             pnlTasksTableContainer.Controls.Add(cbtnCloseChildFormTasks);
             pnlTasksTableContainer.Controls.Add(pnlSliderHolder1);
             pnlTasksTableContainer.Controls.Add(pnlSliderHolder2);
@@ -127,16 +140,26 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlTasksTableContainer.Controls.Add(dgvStudents);
             pnlTasksTableContainer.Controls.Add(btnSearch);
             pnlTasksTableContainer.Dock = DockStyle.Fill;
+            pnlTasksTableContainer.GradientAngle = 315F;
+            pnlTasksTableContainer.GradientCenterX = 0.2F;
+            pnlTasksTableContainer.GradientCenterY = 0.6F;
+            pnlTasksTableContainer.GradientResolution = 1;
             pnlTasksTableContainer.Location = new Point(0, 0);
             pnlTasksTableContainer.Margin = new Padding(4, 3, 4, 3);
             pnlTasksTableContainer.Name = "pnlTasksTableContainer";
+            pnlTasksTableContainer.Opacity = 255;
+            pnlTasksTableContainer.OpacityColourFour = 200;
+            pnlTasksTableContainer.OpacityColourOne = 255;
+            pnlTasksTableContainer.OpacityColourThree = 255;
+            pnlTasksTableContainer.OpacityColourTwo = 255;
             pnlTasksTableContainer.Size = new Size(1285, 825);
             pnlTasksTableContainer.TabIndex = 34;
+            pnlTasksTableContainer.UseRadialGradient = true;
             // 
             // cbtnCloseChildFormTasks
             // 
-            cbtnCloseChildFormTasks.BackColor = Color.FromArgb(255, 128, 0);
-            cbtnCloseChildFormTasks.BackgroundColor = Color.FromArgb(255, 128, 0);
+            cbtnCloseChildFormTasks.BackColor = Color.FromArgb(255, 192, 192);
+            cbtnCloseChildFormTasks.BackgroundColor = Color.FromArgb(255, 192, 192);
             cbtnCloseChildFormTasks.BorderColor = Color.Black;
             cbtnCloseChildFormTasks.BorderRadius = 20;
             cbtnCloseChildFormTasks.BorderSize = 0;
@@ -146,7 +169,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cbtnCloseChildFormTasks.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbtnCloseChildFormTasks.ForeColor = Color.White;
             cbtnCloseChildFormTasks.Image = (Image)resources.GetObject("cbtnCloseChildFormTasks.Image");
-            cbtnCloseChildFormTasks.Location = new Point(1188, 23);
+            cbtnCloseChildFormTasks.Location = new Point(1189, 12);
             cbtnCloseChildFormTasks.Name = "cbtnCloseChildFormTasks";
             cbtnCloseChildFormTasks.Size = new Size(89, 76);
             cbtnCloseChildFormTasks.TabIndex = 36;
@@ -173,8 +196,8 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel1.Controls.Add(pnlEditTableContainer);
             cqpSlidingPanel1.Dock = DockStyle.Right;
             cqpSlidingPanel1.GradientAngle = 90F;
-            cqpSlidingPanel1.GradientCenterX = 0.5F;
-            cqpSlidingPanel1.GradientCenterY = 0.5F;
+            cqpSlidingPanel1.GradientCenterX = 1F;
+            cqpSlidingPanel1.GradientCenterY = 0.1F;
             cqpSlidingPanel1.GradientResolution = 1;
             cqpSlidingPanel1.Location = new Point(6, 0);
             cqpSlidingPanel1.Margin = new Padding(4, 3, 4, 3);
@@ -204,10 +227,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlEditTableContainer.Controls.Add(lblName);
             pnlEditTableContainer.Controls.Add(txtID);
             pnlEditTableContainer.Controls.Add(lblID);
-            pnlEditTableContainer.Location = new Point(48, 49);
+            pnlEditTableContainer.Location = new Point(22, 45);
             pnlEditTableContainer.Margin = new Padding(4, 3, 4, 3);
             pnlEditTableContainer.Name = "pnlEditTableContainer";
-            pnlEditTableContainer.Size = new Size(223, 362);
+            pnlEditTableContainer.Size = new Size(249, 362);
             pnlEditTableContainer.TabIndex = 27;
             // 
             // label8
@@ -223,6 +246,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.FromArgb(208, 187, 195);
+            btnDelete.FlatAppearance.BorderColor = Color.Gray;
+            btnDelete.FlatAppearance.BorderSize = 2;
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDelete.Location = new Point(147, 301);
             btnDelete.Margin = new Padding(2, 3, 2, 3);
@@ -230,11 +257,15 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnDelete.Size = new Size(62, 39);
             btnDelete.TabIndex = 14;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.BackColor = Color.FromArgb(208, 187, 195);
+            btnUpdate.FlatAppearance.BorderColor = Color.Gray;
+            btnUpdate.FlatAppearance.BorderSize = 2;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUpdate.Location = new Point(63, 301);
             btnUpdate.Margin = new Padding(2, 3, 2, 3);
@@ -242,11 +273,15 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnUpdate.Size = new Size(65, 39);
             btnUpdate.TabIndex = 13;
             btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.FromArgb(208, 187, 195);
+            btnClear.FlatAppearance.BorderColor = Color.Gray;
+            btnClear.FlatAppearance.BorderSize = 2;
+            btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClear.Location = new Point(147, 240);
             btnClear.Margin = new Padding(2, 3, 2, 3);
@@ -254,11 +289,15 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnClear.Size = new Size(62, 39);
             btnClear.TabIndex = 12;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
+            btnAdd.BackColor = Color.FromArgb(208, 187, 195);
+            btnAdd.FlatAppearance.BorderColor = Color.Gray;
+            btnAdd.FlatAppearance.BorderSize = 2;
+            btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.Location = new Point(72, 240);
             btnAdd.Margin = new Padding(2, 3, 2, 3);
@@ -266,11 +305,12 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnAdd.Size = new Size(56, 39);
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // txtCourse
             // 
+            txtCourse.BackColor = Color.FromArgb(255, 251, 254);
             txtCourse.Font = new Font("Consolas", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtCourse.Location = new Point(89, 192);
             txtCourse.Margin = new Padding(2, 3, 2, 3);
@@ -291,6 +331,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtAge
             // 
+            txtAge.BackColor = Color.FromArgb(255, 251, 254);
             txtAge.Font = new Font("Consolas", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtAge.Location = new Point(89, 148);
             txtAge.Margin = new Padding(2, 3, 2, 3);
@@ -311,6 +352,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtName
             // 
+            txtName.BackColor = Color.FromArgb(255, 251, 254);
             txtName.Font = new Font("Consolas", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtName.Location = new Point(89, 115);
             txtName.Margin = new Padding(2, 3, 2, 3);
@@ -331,6 +373,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtID
             // 
+            txtID.BackColor = Color.FromArgb(255, 251, 254);
             txtID.Font = new Font("Consolas", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtID.Location = new Point(89, 75);
             txtID.Margin = new Padding(2, 3, 2, 3);
@@ -398,9 +441,9 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel2.Controls.Add(pnlSummaryContainer);
             cqpSlidingPanel2.Dock = DockStyle.Left;
             cqpSlidingPanel2.GradientAngle = 90F;
-            cqpSlidingPanel2.GradientCenterX = 0.5F;
-            cqpSlidingPanel2.GradientCenterY = 0.5F;
-            cqpSlidingPanel2.GradientResolution = 1;
+            cqpSlidingPanel2.GradientCenterX = 0F;
+            cqpSlidingPanel2.GradientCenterY = 0.1F;
+            cqpSlidingPanel2.GradientResolution = 100;
             cqpSlidingPanel2.Location = new Point(47, 0);
             cqpSlidingPanel2.Margin = new Padding(4, 3, 4, 3);
             cqpSlidingPanel2.Name = "cqpSlidingPanel2";
@@ -422,10 +465,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             pnlSummaryContainer.Controls.Add(label6);
             pnlSummaryContainer.Controls.Add(label5);
             pnlSummaryContainer.Controls.Add(btnGenerateSummary);
-            pnlSummaryContainer.Location = new Point(4, 60);
+            pnlSummaryContainer.Location = new Point(4, 45);
             pnlSummaryContainer.Margin = new Padding(4, 3, 4, 3);
             pnlSummaryContainer.Name = "pnlSummaryContainer";
-            pnlSummaryContainer.Size = new Size(223, 362);
+            pnlSummaryContainer.Size = new Size(233, 362);
             pnlSummaryContainer.TabIndex = 28;
             // 
             // lblSummaryLabel
@@ -441,6 +484,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtAvgStdAge
             // 
+            txtAvgStdAge.BackColor = Color.FromArgb(255, 251, 254);
             txtAvgStdAge.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtAvgStdAge.Location = new Point(13, 233);
             txtAvgStdAge.Margin = new Padding(2);
@@ -452,6 +496,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtTotalStudents
             // 
+            txtTotalStudents.BackColor = Color.FromArgb(255, 251, 254);
             txtTotalStudents.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTotalStudents.Location = new Point(34, 117);
             txtTotalStudents.Margin = new Padding(2);
@@ -485,6 +530,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // btnGenerateSummary
             // 
+            btnGenerateSummary.BackColor = Color.FromArgb(208, 187, 195);
+            btnGenerateSummary.FlatAppearance.BorderColor = Color.Gray;
+            btnGenerateSummary.FlatAppearance.BorderSize = 2;
+            btnGenerateSummary.FlatStyle = FlatStyle.Flat;
             btnGenerateSummary.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGenerateSummary.Location = new Point(52, 285);
             btnGenerateSummary.Margin = new Padding(2);
@@ -492,7 +541,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnGenerateSummary.Size = new Size(111, 40);
             btnGenerateSummary.TabIndex = 26;
             btnGenerateSummary.Text = "Generate";
-            btnGenerateSummary.UseVisualStyleBackColor = true;
+            btnGenerateSummary.UseVisualStyleBackColor = false;
             btnGenerateSummary.Click += btnGenerateSummary_Click;
             // 
             // cgpSliderTab2
@@ -501,7 +550,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cgpSliderTab2.ColorTwo = Color.FromArgb(255, 192, 128);
             cgpSliderTab2.Controls.Add(btnOpenCloseSliderpnl2);
             cgpSliderTab2.Dock = DockStyle.Left;
-            cgpSliderTab2.GradientAngle = 0F;
+            cgpSliderTab2.GradientAngle = 90F;
             cgpSliderTab2.Location = new Point(0, 0);
             cgpSliderTab2.Margin = new Padding(4, 3, 4, 3);
             cgpSliderTab2.Name = "cgpSliderTab2";
@@ -526,14 +575,16 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // btnDisplayAllStudents
             // 
-            btnDisplayAllStudents.BackColor = Color.FromArgb(208, 187, 195);
-            btnDisplayAllStudents.FlatAppearance.BorderSize = 0;
+            btnDisplayAllStudents.BackColor = Color.FromArgb(245, 235, 224);
+            btnDisplayAllStudents.FlatAppearance.BorderColor = Color.Gray;
+            btnDisplayAllStudents.FlatAppearance.BorderSize = 2;
+            btnDisplayAllStudents.FlatAppearance.MouseOverBackColor = Color.FromArgb(248, 237, 227);
             btnDisplayAllStudents.FlatStyle = FlatStyle.Flat;
             btnDisplayAllStudents.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDisplayAllStudents.Location = new Point(694, 660);
+            btnDisplayAllStudents.Location = new Point(700, 688);
             btnDisplayAllStudents.Margin = new Padding(2);
             btnDisplayAllStudents.Name = "btnDisplayAllStudents";
-            btnDisplayAllStudents.Size = new Size(97, 29);
+            btnDisplayAllStudents.Size = new Size(125, 53);
             btnDisplayAllStudents.TabIndex = 26;
             btnDisplayAllStudents.Text = "Display all";
             btnDisplayAllStudents.UseVisualStyleBackColor = false;
@@ -542,8 +593,9 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // lblSearch
             // 
             lblSearch.AutoSize = true;
+            lblSearch.BackColor = Color.Transparent;
             lblSearch.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(577, 98);
+            lblSearch.Location = new Point(585, 107);
             lblSearch.Margin = new Padding(2, 0, 2, 0);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(121, 14);
@@ -552,11 +604,11 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // txtSearch
             // 
-            txtSearch.BackColor = Color.White;
+            txtSearch.BackColor = Color.FromArgb(255, 251, 254);
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Consolas", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtSearch.ForeColor = Color.Black;
-            txtSearch.Location = new Point(739, 99);
+            txtSearch.Location = new Point(710, 106);
             txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(130, 22);
@@ -564,14 +616,16 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // btnNext
             // 
-            btnNext.BackColor = Color.FromArgb(208, 187, 195);
-            btnNext.FlatAppearance.BorderSize = 0;
+            btnNext.BackColor = Color.FromArgb(245, 235, 224);
+            btnNext.FlatAppearance.BorderColor = Color.Gray;
+            btnNext.FlatAppearance.BorderSize = 2;
+            btnNext.FlatAppearance.MouseOverBackColor = Color.FromArgb(248, 237, 227);
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnNext.Location = new Point(765, 631);
             btnNext.Margin = new Padding(2, 3, 2, 3);
             btnNext.Name = "btnNext";
-            btnNext.Size = new Size(105, 25);
+            btnNext.Size = new Size(126, 40);
             btnNext.TabIndex = 13;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = false;
@@ -579,14 +633,16 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // btnPrevious
             // 
-            btnPrevious.BackColor = Color.FromArgb(208, 187, 195);
-            btnPrevious.FlatAppearance.BorderSize = 0;
+            btnPrevious.BackColor = Color.FromArgb(245, 235, 224);
+            btnPrevious.FlatAppearance.BorderColor = Color.Gray;
+            btnPrevious.FlatAppearance.BorderSize = 2;
+            btnPrevious.FlatAppearance.MouseOverBackColor = Color.FromArgb(248, 237, 227);
             btnPrevious.FlatStyle = FlatStyle.Flat;
             btnPrevious.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrevious.Location = new Point(648, 631);
+            btnPrevious.Location = new Point(627, 631);
             btnPrevious.Margin = new Padding(2, 3, 2, 3);
             btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(105, 25);
+            btnPrevious.Size = new Size(126, 40);
             btnPrevious.TabIndex = 12;
             btnPrevious.Text = "Previous";
             btnPrevious.UseVisualStyleBackColor = false;
@@ -618,7 +674,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(874, 90);
+            btnSearch.Location = new Point(844, 91);
             btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 39);
@@ -635,14 +691,6 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             tmerSlidePanelOpen2.Interval = 35;
             tmerSlidePanelOpen2.Tick += tmerSlidePanelOpen2_Tick;
-            // 
-            // panel1
-            // 
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(217, 825);
-            panel1.TabIndex = 35;
             // 
             // TasksForm
             // 
@@ -700,7 +748,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Button btnGenerateSummary;
-        public System.Windows.Forms.Panel pnlTasksTableContainer;
+        public CustomControls.CustomQuadColourGradientPanels pnlTasksTableContainer;
         public System.Windows.Forms.Panel pnlSliderHolder1;
         private CustomControls.CustomQuadColourGradientPanels cqpSlidingPanel1;
         public System.Windows.Forms.Panel pnlEditTableContainer;
@@ -716,8 +764,8 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
         public System.Windows.Forms.Panel pnlMainPanel;
         public System.Windows.Forms.Timer tmerSlidePanelOpen;
         private System.Windows.Forms.Timer tmerSlidePanelOpen2;
-        private CustomControls.CustomButtons cbtnCloseChildFormTasks;
-        private Panel panel1;
+        private Panel pnlSide3;
+        public CustomControls.CustomButtons cbtnCloseChildFormTasks;
     }
 }
 
