@@ -5,8 +5,9 @@
 8,James Taylor,22,Economics
 11,James Jesse,26,Economics
 12,Adam Sandler,45,Computer Science
-2,Jane Smith,21,Mathematics
 1,John Doe,22,Computer Science
 3,Emily Johnson,20,Physics
 6,David Wilson,25,Engineering
 10,Robert Thomas,22,History
+13,Michael Bronley,20,Chemistry
+2,Jane Smith,22,Mathematics

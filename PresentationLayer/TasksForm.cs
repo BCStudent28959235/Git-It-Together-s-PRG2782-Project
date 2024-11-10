@@ -155,7 +155,10 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
                     // Clear input fields after adding the student
                     ClearInputFields();
-                }
+
+					Save changeLogSave = new Save();
+					changeLogSave.ChangeLog(students, sID, "Add");
+				}
 
 
             }
@@ -167,9 +170,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
-
-            Save changeLogSave = new Save();
-            changeLogSave.ChangeLog(students, sID, "Add");
 
             save();
         }
@@ -283,14 +283,16 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                         break;
                     }
                 }
-            }
+
+				Save changeLogSave = new Save();
+				changeLogSave.ChangeLog(students, id, "Update");
+			}
             else
             {
                 MessageBox.Show("Please complete the requierd information.");
             }
 
-            Save changeLogSave = new Save();
-            changeLogSave.ChangeLog(students, id, "Update");
+
             save();
         }
 

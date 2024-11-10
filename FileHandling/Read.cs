@@ -58,7 +58,15 @@ namespace WinFormsApp_MainProjectFile.FileHandling
             List<string> changeLog = new List<string>();
 
             string file =Application.StartupPath + @"\\ChangeLog.txt";
-            FileStream fs = new FileStream(file, FileMode.Open);
+            FileStream fs;
+            if (File.Exists(file))
+            {
+				fs = new FileStream(file, FileMode.Open);
+			}
+            else
+            {
+                fs = new FileStream(file, FileMode.Create);
+            }
             StreamReader sr = new StreamReader(fs);
 
             string line;
@@ -71,7 +79,15 @@ namespace WinFormsApp_MainProjectFile.FileHandling
             sr.Close();
             fs.Close();
 
-            changeLog.RemoveRange(0, changeLog.Count - 3);
+            try
+            {
+				changeLog.RemoveRange(0, changeLog.Count - 3);
+			}
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
+
 
             return changeLog;   
         }
