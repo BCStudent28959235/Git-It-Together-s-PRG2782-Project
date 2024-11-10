@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,37 +8,22 @@ using System.Windows.Forms;
 using WinFormsApp_MainProjectFile.LogicLayer;
 using WinFormsApp_MainProjectFile.FileHandling;
 using System.Windows.Forms;
+using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
 
-
-
-
-//still need a check to ensure id stays unique
 namespace WinFormsApp_MainProjectFile.PresentationLayer
 {
-
-
-
     public partial class TasksForm : Form
     {
-
         //UI DESIGN VARIABLES
         int P1W;
         int P2W;
-
         bool P1Hidden;
         bool P2Hidden;
         public string iconsPath;
 
-
-        public Image plusIcon;
-        public Image minusIcon;
-        public Image return_D;
-        public Image return_L;
-        public ImageList imageList = new ImageList();
-
-
         private Settings settings;
         public event Action OnFormClosed;
+        IconLibrary iconLibrary;
 
         // Importing the CreateRoundRectRgn function from Gdi32.dll for creating rounded rectangle regions
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -54,26 +36,17 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                  int nHeightEllipse
              );
 
-
         List<Student> students = new List<Student>();
-
         DataTable studentTable = new DataTable();
         BindingSource src = new BindingSource();
+
         public TasksForm()
         {
             InitializeComponent();
             settings = new Settings();
-
-
+            SettingsForm ucSettings = new SettingsForm();
             settings.readIni();
 
-
-            iconsPath = Application.StartupPath + @"PersonalResources\icons";
-            Image plusIcon = Image.FromFile(iconsPath + @"\Plus_L.png");
-            Image minusIcon = Image.FromFile(iconsPath + @"\Minus_L.png");
-
-            imageList.Images.Add(plusIcon);
-            imageList.Images.Add(minusIcon);
             cqpSlidingPanel1.Width = 0;
             cqpSlidingPanel2.Width = 0;
 
@@ -85,32 +58,103 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             P2W = 250;
             P2Hidden = true;
 
-            btnOpenCloseSliderpnl1.ImageList = imageList;
-            btnOpenCloseSliderpnl2.ImageList = imageList;
+            
+            iconLibrary = IconLibrary.Instance;
 
-            btnOpenCloseSliderpnl1.Image = imageList.Images[0];
-            btnOpenCloseSliderpnl2.Image = imageList.Images[0];
-
-
-            Image return_D = Image.FromFile(iconsPath + @"\Return_D.png");
-            Image return_L = Image.FromFile(iconsPath + @"\Return_L.png");
-
-            imageList.Images.Add(return_L);
-            imageList.Images.Add(return_D);
+          
 
             if (settings.theme.ToLower() == "dark")
             {
                 // Apply Dark Theme
                 ThemeHandler.ApplyDarkMode(this);
-                cbtnCloseChildFormTasks.Image = imageList.Images[3]; // Dark icon
+                cbtnCloseChildFormTasks.Image = iconLibrary.GetImage("HomeB", "Dark"); // Dark icon
+                btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Plus", "Dark");
+                btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Plus", "Dark");
+
+                cqpSlidingPanel2.ColorFour = Color.FromArgb(82, 109, 130);
+                cqpSlidingPanel2.ColorOne = Color.FromArgb(39, 55, 77);
+                cqpSlidingPanel2.ColorThree = Color.FromArgb(82, 109, 130);
+                cqpSlidingPanel2.ColorTwo = Color.FromArgb(39, 55, 77);
+
+                cqpSlidingPanel1.ColorFour = Color.FromArgb(82, 109, 130);
+                cqpSlidingPanel1.ColorOne = Color.FromArgb(39, 55, 77);
+                cqpSlidingPanel1.ColorThree = Color.FromArgb(82, 109, 130);
+                cqpSlidingPanel1.ColorTwo = Color.FromArgb(39, 55, 77);
+
+                btnSearch.Image = iconLibrary.GetImage("Search", "Dark");
+                cgpSliderTab1.ColorOne = Color.Black;
+                cgpSliderTab1.ColorTwo = Color.FromArgb(39, 55, 77);
+
+                btnSearch.BackColor = Color.Transparent;
+
+                cgpSliderTab2.ColorOne = Color.Black; //
+                cgpSliderTab2.ColorTwo = Color.FromArgb(39, 55, 77);//255, 192, 128
+                foreach (DataGridViewRow row in dgvStudents.Rows)
+                {
+                    // Change font color for each cell in the row
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.ForeColor = Color.White;  // Set font color to black for each cell
+                    }
+                }
+
+                // Change font color for all column headers
+                foreach (DataGridViewColumn column in dgvStudents.Columns)
+                {
+                    column.HeaderCell.Style.ForeColor = Color.White;  // Set font color to black for each header
+                }
+
+                dgvStudents.RowsDefaultCellStyle.ForeColor = Color.White;
+                dgvStudents.RowsDefaultCellStyle.BackColor = Color.Black;
+
             }
             else
             {
                 // Apply Light Theme
                 ThemeHandler.ApplyLightMode(this);
-                cbtnCloseChildFormTasks.Image = imageList.Images[2]; // Light icon
+                cbtnCloseChildFormTasks.Image = iconLibrary.GetImage("Close", "Light"); // Light icon
+                btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Plus", "Light");
+                btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Plus", "Light");
+                cqpSlidingPanel2.ColorFour = Color.FromArgb(255, 192, 192);
+                cqpSlidingPanel2.ColorOne = Color.FromArgb(255, 224, 192);
+                cqpSlidingPanel2.ColorThree = Color.FromArgb(255, 192, 192);
+                cqpSlidingPanel2.ColorTwo = Color.FromArgb(255, 224, 192);
+                cqpSlidingPanel1.ColorFour = Color.FromArgb(255, 192, 192);
+                cqpSlidingPanel1.ColorOne = Color.FromArgb(255, 224, 192);
+                cqpSlidingPanel1.ColorThree = Color.FromArgb(255, 192, 192);
+                cqpSlidingPanel1.ColorTwo = Color.FromArgb(255, 224, 192);
+                btnSearch.BackColor = Color.Transparent;
+                btnSearch.Image = iconLibrary.GetImage("Search", "Light");
+
+                dgvStudents.BackgroundColor = Color.White;
+                dgvStudents.ForeColor = Color.Black;
+
+                foreach (DataGridViewRow row in dgvStudents.Rows)
+                {
+                    // Change font color for each cell in the row
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.ForeColor = Color.Black;  // Set font color to black for each cell
+                    }
+                }
+
+                foreach (DataGridViewColumn column in dgvStudents.Columns)
+                {
+                    column.HeaderCell.Style.ForeColor = Color.Black;  // Set font color to black for each header
+                }
+
+               
+                dgvStudents.RowsDefaultCellStyle.ForeColor = Color.Black;
+                dgvStudents.RowsDefaultCellStyle.BackColor = Color.White;
+
+                cgpSliderTab1.ColorOne = Color.FromArgb(39, 55, 77);
+                cgpSliderTab1.ColorTwo = Color.FromArgb(39, 55, 77);
+
+
+
+                cgpSliderTab2.ColorOne = Color.FromArgb(237, 140, 65); //237, 140, 65
+                cgpSliderTab2.ColorTwo = Color.FromArgb(255, 192, 128);//
             }
-           
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -418,8 +462,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                 {
                     tmerSlidePanelOpen.Stop();
                     P1Hidden = false;
+                    if (settings.theme.ToLower() == "dark")
+                    {
+                        // Apply Dark Theme
+                        ThemeHandler.ApplyDarkMode(this);
+                        btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Minus", "Dark");
+                    }
+                    else
+                    {
+                        // Apply Light Theme
+                        ThemeHandler.ApplyLightMode(this);
+                        btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Minus", "Light");
+                    }
 
-                    btnOpenCloseSliderpnl1.Image = imageList.Images[1];
+              
 
                     this.Refresh();
                 }
@@ -432,8 +488,21 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                 {
                     tmerSlidePanelOpen.Stop();
                     P1Hidden = true;
+                    if (settings.theme.ToLower() == "dark")
+                    {
+                        // Apply Dark Theme
+                        ThemeHandler.ApplyDarkMode(this);
+                        btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Plus", "Dark");
+                    }
+                    else
+                    {
+                        // Apply Light Theme
+                        ThemeHandler.ApplyLightMode(this);
+                        btnOpenCloseSliderpnl1.Image = iconLibrary.GetImage("Plus", "Light");
+                    }
+
+
                 
-                    btnOpenCloseSliderpnl1.Image = imageList.Images[0];
 
                     this.Refresh();
                 }
@@ -465,8 +534,19 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                 {
                     tmerSlidePanelOpen2.Stop();
                     P2Hidden = false;
-                    btnOpenCloseSliderpnl2.Image = imageList.Images[1];
-
+                   
+                    if (settings.theme.ToLower() == "dark")
+                    {
+                        // Apply Dark Theme
+                        ThemeHandler.ApplyDarkMode(this);
+                        btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Minus", "Dark");
+                    }
+                    else
+                    {
+                        // Apply Light Theme
+                        ThemeHandler.ApplyLightMode(this);
+                        btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Minus", "Light");
+                    }
                     this.Refresh();
                 }
             }
@@ -478,7 +558,19 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
                 {
                     tmerSlidePanelOpen2.Stop();
                     P2Hidden = true;
-                    btnOpenCloseSliderpnl2.Image = imageList.Images[0];
+                    if (settings.theme.ToLower() == "dark")
+                    {
+                        // Apply Dark Theme
+                        ThemeHandler.ApplyDarkMode(this);
+                        btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Plus", "Dark");
+                    }
+                    else
+                    {
+                        // Apply Light Theme
+                        ThemeHandler.ApplyLightMode(this);
+                        btnOpenCloseSliderpnl2.Image = iconLibrary.GetImage("Plus", "Light");
+                    }
+             
                     this.Refresh();
                 }
             }
@@ -494,6 +586,8 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         private void cbtnCloseChildFormTasks_Click(object sender, EventArgs e)
         {
             OnFormClosed?.Invoke(); 
+
+            
             this.Close();
         }
     }

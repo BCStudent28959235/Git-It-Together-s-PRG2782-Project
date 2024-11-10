@@ -46,7 +46,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             lblTabTitle = new Label();
             gpnlMainFormContainer = new CustomGradientPanels();
             cbtnCloseApp = new CustomButtons();
-            btnClearSearch = new Button();
             pnlCalendarContainer = new Panel();
             gpnlBorder2 = new CustomGradientPanels();
             mcCalendar_pnlCalendarContainer = new MonthCalendar();
@@ -60,7 +59,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             btnNext_pnlMainTableContainer = new Button();
             gpnlBorder1 = new CustomGradientPanels();
             pnlMainTableContainer = new Panel();
-            txtSearchBox = new TextBox();
             pnlNavContainer.SuspendLayout();
             pnlTabTitleContainer.SuspendLayout();
             gpnlMainFormContainer.SuspendLayout();
@@ -73,8 +71,8 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // pnlNavContainer
             // 
-            pnlNavContainer.ColorOne = Color.FromArgb(223, 105, 13);
-            pnlNavContainer.ColorTwo = Color.FromArgb(237, 140, 65);
+            pnlNavContainer.ColorOne = Color.FromArgb(33, 42, 62);
+            pnlNavContainer.ColorTwo = Color.FromArgb(51, 65, 95);
             pnlNavContainer.Controls.Add(pnlNav);
             pnlNavContainer.Controls.Add(btnSettings);
             pnlNavContainer.Controls.Add(btnInfo);
@@ -83,6 +81,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNavContainer.Controls.Add(btnDashboard);
             pnlNavContainer.Controls.Add(pnlTabTitleContainer);
             pnlNavContainer.Dock = DockStyle.Left;
+            pnlNavContainer.ForeColor = Color.Black;
             pnlNavContainer.GradientAngle = 0F;
             pnlNavContainer.Location = new Point(0, 0);
             pnlNavContainer.Margin = new Padding(4);
@@ -240,7 +239,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             gpnlMainFormContainer.ColorOne = Color.FromArgb(254, 242, 232);
             gpnlMainFormContainer.ColorTwo = Color.White;
             gpnlMainFormContainer.Controls.Add(cbtnCloseApp);
-            gpnlMainFormContainer.Controls.Add(btnClearSearch);
             gpnlMainFormContainer.Controls.Add(pnlCalendarContainer);
             gpnlMainFormContainer.Controls.Add(pnlContainerMiddle);
             gpnlMainFormContainer.Dock = DockStyle.Fill;
@@ -271,20 +269,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             cbtnCloseApp.TextColor = Color.Black;
             cbtnCloseApp.UseVisualStyleBackColor = false;
             cbtnCloseApp.Click += cbtnCloseApp_Click;
-            // 
-            // btnClearSearch
-            // 
-            btnClearSearch.BackColor = Color.Transparent;
-            btnClearSearch.FlatAppearance.BorderSize = 0;
-            btnClearSearch.FlatStyle = FlatStyle.Flat;
-            btnClearSearch.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClearSearch.Location = new Point(710, 38);
-            btnClearSearch.Margin = new Padding(4);
-            btnClearSearch.Name = "btnClearSearch";
-            btnClearSearch.Size = new Size(20, 28);
-            btnClearSearch.TabIndex = 8;
-            btnClearSearch.Text = "X";
-            btnClearSearch.UseVisualStyleBackColor = false;
             // 
             // pnlCalendarContainer
             // 
@@ -493,19 +477,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlMainTableContainer.Size = new Size(465, 685);
             pnlMainTableContainer.TabIndex = 1;
             // 
-            // txtSearchBox
-            // 
-            txtSearchBox.BackColor = Color.FromArgb(255, 251, 254);
-            txtSearchBox.BorderStyle = BorderStyle.FixedSingle;
-            txtSearchBox.CharacterCasing = CharacterCasing.Lower;
-            txtSearchBox.Font = new Font("Consolas", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtSearchBox.Location = new Point(238, 41);
-            txtSearchBox.Margin = new Padding(4);
-            txtSearchBox.Name = "txtSearchBox";
-            txtSearchBox.Size = new Size(465, 20);
-            txtSearchBox.TabIndex = 7;
-            txtSearchBox.Text = "search...";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -513,7 +484,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             BackColor = Color.White;
             ClientSize = new Size(1285, 825);
             Controls.Add(pnlNavContainer);
-            Controls.Add(txtSearchBox);
             Controls.Add(pnlMainTableContainer);
             Controls.Add(gpnlMainFormContainer);
             FormBorderStyle = FormBorderStyle.None;
@@ -532,11 +502,9 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)dgvStudents_pnlMainTableContainer).EndInit();
             pnlMainTableContainer.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        public System.Windows.Forms.Button btnClearSearch;
         private CustomGradientPanels pnlNavContainer;
         public System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Panel pnlNav;
@@ -560,7 +528,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         public Button btnNext_pnlMainTableContainer;
         public CustomGradientPanels gpnlBorder1;
         public Panel pnlMainTableContainer;
-        public TextBox txtSearchBox;
         private CustomButtons cbtnCloseApp;
         private ListView lsvRecentChanges;
     }

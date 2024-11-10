@@ -40,35 +40,40 @@ namespace WinFormsApp_MainProjectFile.LogicLayer
 
         public static Theme DarkTheme { get; } = new Theme
         {
-            getD = true,
+          
             BackgroundColor = Color.FromArgb(33, 42, 62),
             ForegroundColor = Color.FromArgb(255, 255, 255),
-            LightFontColor = Color.FromArgb(255, 255, 255),
-            TextBoxBackgroundColor = Color.FromArgb(45, 45, 48),
-            PanelColor = Color.FromArgb(50, 50, 50),
-            ButtonColor = Color.FromArgb(57, 72, 103),
-            ReturnButtonColor = Color.FromArgb(57, 72, 103),
-            PanelButtonColor = Color.FromArgb(70, 70, 70),
+            LightFontColor = Color.White,
+            TextBoxBackgroundColor = Color.FromArgb(243, 238, 234),
+            PanelColor = Color.Black,
+
+            ButtonColor = Color.FromArgb(0, 60, 67),
+            ReturnButtonColor = Color.FromArgb(44, 51, 51),
+            PanelButtonColor = Color.FromArgb(155, 164, 181),
 
 
-            QuadPanelColor1 = Color.FromArgb(70, 70, 70),
-            QuadPanelColor2 = Color.FromArgb(70, 70, 70),
-            QuadPanelColor3 = Color.FromArgb(70, 70, 70),
-            QuadPanelColor4 = Color.FromArgb(70, 70, 70),
+            BackColour1 = Color.FromArgb(155, 164, 181),
+            BackColour2 = Color.FromArgb(155, 164, 181),
+
+
+            QuadPanelColor1 = Color.FromArgb(82, 109, 130),
+            QuadPanelColor2 = Color.FromArgb(157, 178, 191),
+            QuadPanelColor3 = Color.FromArgb(39, 55, 77),
+            QuadPanelColor4 = Color.FromArgb(57, 72, 103),
 
 
             TabColour1 = Color.FromArgb(237, 140, 65),
 
             TabColour2 = Color.FromArgb(255, 192, 128),
-         
 
            
+
 
         };
 
     public static Theme LightTheme { get; } = new Theme 
     {
-        getD = false,
+      
         BackColour1=Color.FromArgb(254, 242, 232), //for CustomGradientPanels 254, 242, 232
         BackColour2 = Color.White,//for Custom Gradient Panels
 

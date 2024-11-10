@@ -15,13 +15,11 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 {
     public partial class ChangelogForm : Form
     {
-        public Image return_D;
-        public Image return_L;
-        public ImageList imageList = new ImageList();
-        public string iconsPath;
+      
 
         public event Action OnFormClosed;
         private Settings settings;
+        IconLibrary iconLibrary;
         private ThemeHandler themeHandler;
         public ChangelogForm()
         {
@@ -34,27 +32,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
 
 
+            iconLibrary = IconLibrary.Instance;
+         
 
 
-
-            iconsPath = Application.StartupPath + @"PersonalResources\icons";
-            Image return_D = Image.FromFile(iconsPath + @"\Return_D.png");
-            Image return_L = Image.FromFile(iconsPath + @"\Return_L.png");
-
-            imageList.Images.Add(return_L);
-            imageList.Images.Add(return_D);
             if (settings.theme.ToLower() == "dark")
             {
                 ThemeHandler.ApplyDarkMode(this);
-              
-                cbtnCloseChildForm1.Image = imageList.Images[1]; // Set the dark icon
+
+                cbtnCloseChildForm1.Image = iconLibrary.GetImage("HomeB", "Dark");
+                lsvChangeLog.ForeColor = Color.White;
+                lsvChangeLog.BackColor = Color.Black;
             }
             else
             {
                 ThemeHandler.ApplyLightMode(this);
                 pnlHoldsChangelog.BackColor = Color.FromArgb(245, 235, 224);
-
-                cbtnCloseChildForm1.Image = imageList.Images[0]; // Set the light icon
+                lsvChangeLog.ForeColor = Color.Black;
+                lsvChangeLog.BackColor = Color.White;
+                cbtnCloseChildForm1.Image = iconLibrary.GetImage("HomeB", "Light");
             }
 
           
@@ -88,13 +84,6 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             this.Close();
         }
 
-        private void cbtnTaskFormOpen_Click(object sender, EventArgs e)
-        {
-            OnFormClosed?.Invoke();
-            this.Close();
-          
-
-
-        }
+       
     }
 }

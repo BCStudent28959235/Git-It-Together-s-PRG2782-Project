@@ -9,19 +9,21 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
 using WinFormsApp_MainProjectFile.PresentationLayer.UserControls;
+using System.Diagnostics;
+
 
 namespace WinFormsApp_MainProjectFile.PresentationLayer.UserControls
 {
     public partial class SettingsForm : Form
     {
-        public Image return_D;
-        public Image return_L;
-        public ImageList imageList = new ImageList();
-        public string iconsPath;
-
         public event Action OnFormClosed;
+        public event Action ThemeChanged;  // Event to notify other forms of theme change
+        public Color color1;
+        public Color color2;
+        private IconLibrary iconLibrary;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
@@ -37,15 +39,30 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer.UserControls
         {
             InitializeComponent();
             getIni();  // Load settings (theme and font)
-            getIniFont();  // Load font settings
-            iconsPath = Application.StartupPath + @"PersonalResources\icons";
-            Image return_D = Image.FromFile(iconsPath + @"\Return_D.png");
-            Image return_L = Image.FromFile(iconsPath + @"\Return_L.png");
+           
+          Settings settings = new Settings();
 
-            imageList.Images.Add(return_L);
-            imageList.Images.Add(return_D);
 
-            cbtnCloseChildForm2.Image = imageList.Images[0];
+            settings.readIni();
+
+
+            iconLibrary = IconLibrary.Instance;
+
+
+
+            if (settings.theme.ToLower() == "dark")
+            {
+                ThemeHandler.ApplyDarkMode(this);
+
+                cbtnCloseChildForm2.Image = iconLibrary.GetImage("HomeB", "Dark");
+            }
+            else
+            {
+                ThemeHandler.ApplyLightMode(this);
+               
+
+                cbtnCloseChildForm2.Image = iconLibrary.GetImage("HomeB", "Light");
+            }
 
             // Apply rounded corners to the form
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -61,38 +78,25 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer.UserControls
                 lblDarkLight.Text = "Dark";
                 ctbtnThemeToggle.Checked = true;
                 ThemeHandler.ApplyDarkMode(this); // Apply dark mode when dark is selected
+                ThemeChanged?.Invoke();
             }
             else
             {
                 lblDarkLight.Text = "Light";
                 ctbtnThemeToggle.Checked = false;
                 ThemeHandler.ApplyLightMode(this); // Apply light mode when light is selected
+                ThemeChanged?.Invoke();
             }
         }
 
-        // Method to read the font setting from INI and apply it
-        public void getIniFont()
-        {
-            Settings get = new Settings();
-            get.readIniFont();
-            if (get.fontD == "on")
-            {
-                lblFonts.Text = "Dyslexic friendly mode ON";
-                ctbntFontToggle.Checked = true;
-                // Apply dyslexic-friendly fonts (You should define this logic if needed)
-            }
-            else
-            {
-                lblFonts.Text = "Dyslexic friendly mode OFF";
-                ctbntFontToggle.Checked = false;
-                // Reset to default fonts if needed
-            }
-        }
+     
+     
 
-        // Close the settings form
+      
         private void cbtnCloseChildForm2_Click(object sender, EventArgs e)
         {
             OnFormClosed?.Invoke();
+
             this.Close();
         }
 
@@ -100,34 +104,32 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer.UserControls
         public void ctbtnThemeToggle_CheckedChanged(object sender, EventArgs e)
         {
             Settings set = new Settings();
-            if (ctbtnThemeToggle.Checked == true)
+            if (ctbtnThemeToggle.Checked)
             {
                 set.writeIni("SECTION", "key", "dark");  // Save the dark theme in the INI
                 ThemeHandler.ApplyDarkMode(this);  // Apply dark theme
+                cbtnCloseChildForm2.Image = IconLibrary.Instance.GetImage("HomeB", "Dark");
+                ThemeChanged?.Invoke();
+
             }
             else
             {
                 set.writeIni("SECTION", "key", "light");  // Save the light theme in the INI
                 ThemeHandler.ApplyLightMode(this);  // Apply light theme
+                cbtnCloseChildForm2.Image = IconLibrary.Instance.GetImage("HomeB", "Light");
+                ThemeChanged?.Invoke();
+                color1 = Color.FromArgb(223, 105, 13);
+                color2 = Color.FromArgb(237, 140, 65);
             }
-            getIni();  // Re-read the INI to apply changes
         }
 
         // Font toggle event (dyslexic-friendly font)
-        private void ctbntFontToggle_CheckedChanged(object sender, EventArgs e)
+    
+
+        // Form closing event
+        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Settings set = new Settings();
-            if (ctbntFontToggle.Checked == true)
-            {
-                set.writeFontIni("SECTION", "key", "on");  // Enable dyslexic-friendly font
-                // Apply dyslexic-friendly fonts here
-            }
-            else
-            {
-                set.writeFontIni("SECTION", "key", "off");  // Disable dyslexic-friendly font
-                // Revert to default fonts here
-            }
-            getIniFont();  // Re-read font settings
+            IconLibrary.Instance.Dispose(); // Dispose of resources when the form is closing
         }
     }
 }

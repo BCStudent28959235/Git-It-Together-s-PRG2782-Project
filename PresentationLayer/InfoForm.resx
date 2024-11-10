@@ -121,7 +121,7 @@
   <data name="cbtnCloseChildFornInfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAfxJREFUeF7tkUtqxEAMROccc7LsMskq99/mK4dyYxqZmu6SsA16UJBYXaXP3Iqi
+        DAAACwwBP0AiyAAAAfxJREFUeF7tkUtqxEAMROccc7LsMskq99/mK4dyYxqZmu6SsA16UJBYXaXP3Iqi
         KIqiKPa43++/VxbWmMcLvZKwxjxe6JWENebxQq8krDFPeGAy4fOGByYTPm94YDLh84YHJhM+b3hgMuHz
         hgdusLyXRfg3hO2si/B5nvBAYFkP0xf0wGeZZcat8Hme8EDDct5M35vcH9MHyhKbzJh5owMto19+VcgR
         usxzHcD8e8uvko/Q5Z3nAOZ9N/XLL/97395hG6bLOscBzOf98v+/tmm3BvsQXc7xBzAPXdD+DjtCl3Hs
@@ -132,5 +132,12 @@
         10QRYhveG0WIjcNrogixDe+NIsTG4TVRhNiG90YRYouiKIqiKHa43f4ADUVpvGb97JMAAAAASUVORK5C
         YII=
 </value>
+  </data>
+  <data name="lblContent1.Text" xml:space="preserve">
+    <value>Our submission for this assignment allows the users to use all the functionalities
+as stipulated in the project requirements, all while providing additional aid.
+
+With our primary focus being usability we put a lot of time into the UI design
+which allows the user to switch themes as they please</value>
   </data>
 </root>

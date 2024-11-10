@@ -31,15 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             cgpMainContainer = new CustomControls.CustomGradientPanels();
             cbtnCloseChildForm2 = new CustomControls.CustomButtons();
-            pnlFontToggle = new Panel();
-            lblFonts = new Label();
-            ctbntFontToggle = new CustomControls.CustomToggleButton();
             pnlThemeToggle = new Panel();
             lblDarkLight = new Label();
             ctbtnThemeToggle = new CustomControls.CustomToggleButton();
             pnlSide1 = new Panel();
             cgpMainContainer.SuspendLayout();
-            pnlFontToggle.SuspendLayout();
             pnlThemeToggle.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +45,6 @@
             cgpMainContainer.ColorOne = Color.FromArgb(254, 242, 232);
             cgpMainContainer.ColorTwo = Color.White;
             cgpMainContainer.Controls.Add(cbtnCloseChildForm2);
-            cgpMainContainer.Controls.Add(pnlFontToggle);
             cgpMainContainer.Controls.Add(pnlThemeToggle);
             cgpMainContainer.Dock = DockStyle.Fill;
             cgpMainContainer.ForeColor = SystemColors.ActiveBorder;
@@ -81,46 +76,6 @@
             cbtnCloseChildForm2.TextColor = Color.White;
             cbtnCloseChildForm2.UseVisualStyleBackColor = false;
             cbtnCloseChildForm2.Click += cbtnCloseChildForm2_Click;
-            // 
-            // pnlFontToggle
-            // 
-            pnlFontToggle.BackColor = Color.White;
-            pnlFontToggle.BorderStyle = BorderStyle.FixedSingle;
-            pnlFontToggle.Controls.Add(lblFonts);
-            pnlFontToggle.Controls.Add(ctbntFontToggle);
-            pnlFontToggle.Location = new Point(602, 427);
-            pnlFontToggle.Name = "pnlFontToggle";
-            pnlFontToggle.Size = new Size(261, 101);
-            pnlFontToggle.TabIndex = 2;
-            // 
-            // lblFonts
-            // 
-            lblFonts.AutoSize = true;
-            lblFonts.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFonts.ForeColor = Color.Black;
-            lblFonts.Location = new Point(99, 0);
-            lblFonts.Name = "lblFonts";
-            lblFonts.Size = new Size(113, 87);
-            lblFonts.TabIndex = 1;
-            lblFonts.Text = "Dyslexia\r\nfriendly\r\nfonts";
-            // 
-            // ctbntFontToggle
-            // 
-            ctbntFontToggle.AutoSize = true;
-            ctbntFontToggle.BackColor = Color.Transparent;
-            ctbntFontToggle.ForeColor = SystemColors.WindowText;
-            ctbntFontToggle.Location = new Point(13, 25);
-            ctbntFontToggle.MinimumSize = new Size(80, 40);
-            ctbntFontToggle.Name = "ctbntFontToggle";
-            ctbntFontToggle.OffBackColour = Color.SaddleBrown;
-            ctbntFontToggle.OffToggleColour = Color.Peru;
-            ctbntFontToggle.OnBackColour = Color.DarkGreen;
-            ctbntFontToggle.OnToggleColour = Color.DarkSeaGreen;
-            ctbntFontToggle.Size = new Size(80, 40);
-            ctbntFontToggle.SolidStyle = false;
-            ctbntFontToggle.TabIndex = 0;
-            ctbntFontToggle.UseVisualStyleBackColor = false;
-            ctbntFontToggle.CheckedChanged += ctbntFontToggle_CheckedChanged;
             // 
             // pnlThemeToggle
             // 
@@ -179,8 +134,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "SettingsForm";
             cgpMainContainer.ResumeLayout(false);
-            pnlFontToggle.ResumeLayout(false);
-            pnlFontToggle.PerformLayout();
             pnlThemeToggle.ResumeLayout(false);
             pnlThemeToggle.PerformLayout();
             ResumeLayout(false);
@@ -190,12 +143,9 @@
 
         private CustomControls.CustomGradientPanels cgpMainContainer;
         private CustomControls.CustomToggleButton ctbtnThemeToggle;
-        private CustomControls.CustomToggleButton ctbntFontToggle;
         private Panel pnlSide1;
         public Panel pnlThemeToggle;
-        public Panel pnlFontToggle;
         public CustomControls.CustomButtons cbtnCloseChildForm2;
         public Label lblDarkLight;
-        public Label lblFonts;
     }
 }

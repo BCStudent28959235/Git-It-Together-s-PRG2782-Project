@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,13 +44,15 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         public MainForm()
         {
             InitializeComponent();
+            //ucSettings.ThemeChanged += OnThemeChanged;
+
 
             settings = new Settings();
 
 
             settings.readIni();
 
-
+            ucSettings.ThemeChanged += OnThemeChanged;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 
 
@@ -60,7 +61,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //setting initial dashboard background colour
 
-            // childFormPanel = gpnlMainFormContainer;
+           
 
 
 
@@ -76,18 +77,51 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
             childFormDisplayer = new ShowChildForm(childFormPanel);
             settings.readIni();
+       
 
             if (settings.theme.ToLower() == "dark")
             {
                 // Apply Dark Theme
                 ThemeHandler.ApplyDarkMode(this);
-               
+        
+                pnlNavContainer.ColorOne = Color.FromArgb(33, 42, 62);
+                pnlNavContainer.ColorTwo = Color.FromArgb(51, 65, 95);
+                btnDashboard.Image = IconLibrary.Instance.GetImage("HomeS", "Dark");
+                btnStudentData.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                btnChangelog.Image = IconLibrary.Instance.GetImage("Changelog", "Dark");
+                btnSettings.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                btnInfo.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                cbtnCloseApp.Image = IconLibrary.Instance.GetImage("Close", "Dark");
+                dgvStudents_pnlMainTableContainer.ForeColor = Color.Black;
+                btnDashboard.ForeColor = Color.White;
+                btnStudentData.ForeColor = Color.White;
+                btnChangelog.ForeColor = Color.White;
+                btnSettings.ForeColor = Color.White;
+                btnInfo.ForeColor = Color.White;
+                lsvRecentChanges.ForeColor = Color.White;
+                gpnlBorder1.ColorOne = Color.FromArgb(155, 164, 181);
+                gpnlBorder1.ColorTwo = Color.FromArgb(33, 42, 62);
+                lblTabTitle.ForeColor = Color.White;
+                //
+                lsvRecentChanges.BackColor = Color.Black;
             }
             else
             {
                 // Apply Light Theme
                 ThemeHandler.ApplyLightMode(this);
-             
+                pnlNavContainer.ColorOne = Color.FromArgb(223, 105, 13);
+                pnlNavContainer.ColorTwo = Color.FromArgb(237, 140, 65);
+                btnDashboard.Image = IconLibrary.Instance.GetImage("HomeS", "Light");
+                btnStudentData.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                btnChangelog.Image = IconLibrary.Instance.GetImage("Changelog", "Light");
+                btnSettings.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                btnInfo.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                cbtnCloseApp.Image = IconLibrary.Instance.GetImage("Close", "Light");
+                gpnlBorder1.ColorOne = Color.Black;
+                gpnlBorder1.ColorTwo = Color.DimGray;
+                lsvRecentChanges.ForeColor = Color.Black;
+                lsvRecentChanges.BackColor = Color.White;
+                 lblTabTitle.ForeColor = Color.Black;
             }
 
         }
@@ -145,9 +179,30 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         }
 
 
+        public void OnThemeChanged()
+        {
+           
+            settings.readIni();
 
+            if (settings.theme.ToLower() == "dark")
+            {
+                ThemeHandler.ApplyDarkMode(this);
+            }
+            else
+            {
+                ThemeHandler.ApplyLightMode(this);
+            }
 
+            // Trigger a refresh of the main form's appearance
+            RefreshFormAppearance();
+        }
 
+        public void RefreshFormAppearance()
+        {
+            
+            this.Invalidate();
+            this.Update();
+        }
 
         private void btnPrevious_pnlMainTableContainer_Click(object sender, EventArgs e)
         {
@@ -165,18 +220,49 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             settings.readIni();
-
             if (settings.theme.ToLower() == "dark")
             {
                 // Apply Dark Theme
                 ThemeHandler.ApplyDarkMode(this);
 
+                pnlNavContainer.ColorOne = Color.FromArgb(33, 42, 62);
+                pnlNavContainer.ColorTwo = Color.FromArgb(51, 65, 95);
+                btnDashboard.Image = IconLibrary.Instance.GetImage("HomeS", "Dark");
+                btnStudentData.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                btnChangelog.Image = IconLibrary.Instance.GetImage("Changelog", "Dark");
+                btnSettings.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                btnInfo.Image = IconLibrary.Instance.GetImage("Data", "Dark");
+                cbtnCloseApp.Image = IconLibrary.Instance.GetImage("Close", "Dark");
+                dgvStudents_pnlMainTableContainer.ForeColor = Color.Black;
+                btnDashboard.ForeColor = Color.White;
+                btnStudentData.ForeColor = Color.White;
+                btnChangelog.ForeColor = Color.White;
+                btnSettings.ForeColor = Color.White;
+                btnInfo.ForeColor = Color.White;
+                lsvRecentChanges.ForeColor = Color.White;
+                gpnlBorder1.ColorOne = Color.FromArgb(155, 164, 181);
+                gpnlBorder1.ColorTwo = Color.FromArgb(33, 42, 62);
+                lblTabTitle.ForeColor = Color.White;
+                //
+                lsvRecentChanges.BackColor = Color.Black;
             }
             else
             {
                 // Apply Light Theme
                 ThemeHandler.ApplyLightMode(this);
-
+                pnlNavContainer.ColorOne = Color.FromArgb(223, 105, 13);
+                pnlNavContainer.ColorTwo = Color.FromArgb(237, 140, 65);
+                btnDashboard.Image = IconLibrary.Instance.GetImage("HomeS", "Light");
+                btnStudentData.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                btnChangelog.Image = IconLibrary.Instance.GetImage("Changelog", "Light");
+                btnSettings.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                btnInfo.Image = IconLibrary.Instance.GetImage("Data", "Light");
+                cbtnCloseApp.Image = IconLibrary.Instance.GetImage("Close", "Light");
+                gpnlBorder1.ColorOne = Color.Black;
+                gpnlBorder1.ColorTwo = Color.DimGray;
+                lsvRecentChanges.ForeColor = Color.Black;
+                lsvRecentChanges.BackColor = Color.White;
+                lblTabTitle.ForeColor = Color.Black;
             }
 
             lblTabTitle.Text = "Dashboard";
@@ -184,7 +270,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             pnlNav.Height = btnDashboard.Height;
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
+            btnDashboard.BackColor = Color.FromArgb(240, 210, 144); 
             childFormPanel.Controls.Clear();
             childFormPanel.Hide();
 
@@ -194,12 +280,12 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnStudentData_Click(object sender, EventArgs e)
         {
-              lblTabTitle.Text = "Student Data";
+            lblTabTitle.Text = "Student Data";
 
             pnlNav.Height = btnStudentData.Height;
             pnlNav.Top = btnStudentData.Top;
             pnlNav.Left = btnStudentData.Left;
-            btnStudentData.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class
+            btnStudentData.BackColor = Color.FromArgb(240, 210, 144); //put into theme handler class 
             btnDashboard.BackColor = Color.Transparent; //add to theme handler
                                                         // Show the child form in the panel
             childFormPanel.Visible = true;
@@ -273,6 +359,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
             childFormPanel.Visible = true;
             SettingsForm testerForm = new SettingsForm();
             testerForm.OnFormClosed += TesterForm_OnFormClosed;
+         
             childFormDisplayer.DisplayForm(testerForm);
 
 
@@ -301,20 +388,20 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            
-            btnDashboard.BackColor = Color.Transparent; 
+
+            btnDashboard.BackColor = Color.Transparent;
         }
 
         private void btnStudentData_Leave(object sender, EventArgs e)
         {
-            
 
-            btnStudentData.BackColor = Color.Transparent; 
+
+            btnStudentData.BackColor = Color.Transparent;
         }
 
         private void btnDataSummary_Leave(object sender, EventArgs e)
         {
-           
+
 
             btnChangelog.BackColor = Color.Transparent; //add to theme handler
         }
@@ -341,8 +428,12 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
         private void cbtnCloseApp_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
-     
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

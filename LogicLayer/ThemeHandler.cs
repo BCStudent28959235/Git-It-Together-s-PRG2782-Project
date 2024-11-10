@@ -24,6 +24,36 @@ namespace WinFormsApp_MainProjectFile.LogicLayer
 
         private void ApplyControlTheme(Control control, Theme theme)
         {
+            var controlsToSkip = new List<string>
+{
+  
+    "pnlSliderHolder1",
+    "pnlSliderHolder2",
+    "pnlNavContainer"
+};
+
+            
+            if (controlsToSkip.Contains(control.Name) ||
+                controlsToSkip.Contains(control.Parent?.Name))
+            {
+              
+                return;
+            }
+           
+            if (control.Name == "gpnlBorder1" || control.Name == "gpnlBorder2" || control.Name == "gpnlBorder3")
+            {
+              
+                return;
+            }
+
+           
+            if (controlsToSkip.Contains(control.Name) ||
+                controlsToSkip.Contains(control.Parent?.Name))
+            {
+               
+                return;
+            }
+
             // Apply theme based on control type
             if (control is Panel panel)
             {
@@ -47,7 +77,7 @@ namespace WinFormsApp_MainProjectFile.LogicLayer
             }
             else if (control is Button button)
             {
-                // Check the immediate parent of the button (the panel it's on)
+                // Check the immediate parent of the button 
                 Control parentControl = button.Parent;
 
                 // Check if it's a regular button or a CustomButton

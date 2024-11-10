@@ -105,11 +105,11 @@
             // 
             lblContent1.AutoSize = true;
             lblContent1.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblContent1.Location = new Point(25, 71);
+            lblContent1.Location = new Point(25, 64);
             lblContent1.Name = "lblContent1";
-            lblContent1.Size = new Size(80, 22);
+            lblContent1.Size = new Size(830, 110);
             lblContent1.TabIndex = 1;
-            lblContent1.Text = "Content";
+            lblContent1.Text = resources.GetString("lblContent1.Text");
             // 
             // lblUpperTitle
             // 
@@ -117,9 +117,9 @@
             lblUpperTitle.Font = new Font("Verdana", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUpperTitle.Location = new Point(25, 11);
             lblUpperTitle.Name = "lblUpperTitle";
-            lblUpperTitle.Size = new Size(63, 29);
+            lblUpperTitle.Size = new Size(400, 29);
             lblUpperTitle.TabIndex = 0;
-            lblUpperTitle.Text = "Title";
+            lblUpperTitle.Text = "Git It Together's PRG282 project";
             // 
             // InfoForm
             // 

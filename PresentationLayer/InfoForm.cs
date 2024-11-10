@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp_MainProjectFile.FileHandling;
 using WinFormsApp_MainProjectFile.LogicLayer;
 
 namespace WinFormsApp_MainProjectFile.PresentationLayer
@@ -15,7 +16,7 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
     {
         public event Action OnFormClosed;
         private Settings settings;
- 
+        IconLibrary iconLibrary;
 
         public InfoForm()
         {
@@ -25,15 +26,18 @@ namespace WinFormsApp_MainProjectFile.PresentationLayer
 
             settings.readIni();
 
+            iconLibrary = IconLibrary.Instance;
             if (settings.theme.ToLower() == "dark")
             {
                 // Apply Dark Theme
                ThemeHandler.ApplyDarkMode(this);
+                cbtnCloseChildFornInfo.Image = iconLibrary.GetImage("HomeB", "Dark");
             }
             else
             {
                 // Apply Light Theme
                 ThemeHandler.ApplyLightMode(this);
+                cbtnCloseChildFornInfo.Image = iconLibrary.GetImage("HomeB", "Light");
             }
         }
 

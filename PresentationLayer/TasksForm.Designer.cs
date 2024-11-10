@@ -189,10 +189,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // cqpSlidingPanel1
             // 
-            cqpSlidingPanel1.ColorFour = Color.FromArgb(255, 192, 192);
-            cqpSlidingPanel1.ColorOne = Color.FromArgb(255, 224, 192);
-            cqpSlidingPanel1.ColorThree = Color.FromArgb(255, 192, 192);
-            cqpSlidingPanel1.ColorTwo = Color.FromArgb(255, 224, 192);
+            cqpSlidingPanel1.ColorFour = Color.FromArgb(82, 109, 130);
+            cqpSlidingPanel1.ColorOne = Color.FromArgb(39, 55, 77);
+            cqpSlidingPanel1.ColorThree = Color.FromArgb(82, 109, 130);
+            cqpSlidingPanel1.ColorTwo = Color.FromArgb(39, 55, 77);
             cqpSlidingPanel1.Controls.Add(pnlEditTableContainer);
             cqpSlidingPanel1.Dock = DockStyle.Right;
             cqpSlidingPanel1.GradientAngle = 90F;
@@ -394,8 +394,8 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // cgpSliderTab1
             // 
-            cgpSliderTab1.ColorOne = Color.FromArgb(237, 140, 65);
-            cgpSliderTab1.ColorTwo = Color.FromArgb(255, 192, 128);
+            cgpSliderTab1.ColorOne = Color.Black;
+            cgpSliderTab1.ColorTwo = Color.FromArgb(51, 65, 95);
             cgpSliderTab1.Controls.Add(btnOpenCloseSliderpnl1);
             cgpSliderTab1.Dock = DockStyle.Right;
             cgpSliderTab1.GradientAngle = 180F;
@@ -434,10 +434,10 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             // 
             // cqpSlidingPanel2
             // 
-            cqpSlidingPanel2.ColorFour = Color.FromArgb(255, 192, 192);
-            cqpSlidingPanel2.ColorOne = Color.FromArgb(255, 224, 192);
-            cqpSlidingPanel2.ColorThree = Color.FromArgb(255, 192, 192);
-            cqpSlidingPanel2.ColorTwo = Color.FromArgb(255, 224, 192);
+            cqpSlidingPanel2.ColorFour = Color.FromArgb(82, 109, 130);
+            cqpSlidingPanel2.ColorOne = Color.FromArgb(39, 55, 77);
+            cqpSlidingPanel2.ColorThree = Color.FromArgb(82, 109, 130);
+            cqpSlidingPanel2.ColorTwo = Color.FromArgb(39, 55, 77);
             cqpSlidingPanel2.Controls.Add(pnlSummaryContainer);
             cqpSlidingPanel2.Dock = DockStyle.Left;
             cqpSlidingPanel2.GradientAngle = 90F;
@@ -452,7 +452,7 @@ namespace  WinFormsApp_MainProjectFile.PresentationLayer
             cqpSlidingPanel2.OpacityColourOne = 255;
             cqpSlidingPanel2.OpacityColourThree = 255;
             cqpSlidingPanel2.OpacityColourTwo = 255;
-            cqpSlidingPanel2.Size = new Size(271, 438);
+            cqpSlidingPanel2.Size = new Size(280, 438);
             cqpSlidingPanel2.TabIndex = 33;
             cqpSlidingPanel2.UseRadialGradient = true;
             // 
